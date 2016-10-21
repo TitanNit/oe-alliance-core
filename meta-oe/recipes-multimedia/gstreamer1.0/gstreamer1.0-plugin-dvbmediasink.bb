@@ -19,15 +19,22 @@ SRC_URI_append_dags7356 = " \
     file://0001-update-dags-support.patch;patch=1 \ 
 "
 SRC_URI_append_dags7362 = " \
-    file://0001-update-dags-support.patch;patch=1 \ 
+    file://0001-update-dags-support.patch;patch=1 \
 "
 
 SRC_URI_append_dm7080 = " \
-    file://0001-add-VB6-VB8-SPARK.patch;patch=1 \ 
+    file://0001-add-VB6-VB8-SPARK.patch;patch=1 \
+    file://0001-dreambox-h265-streamtype-22.patch \
 "
 
 SRC_URI_append_dm820 = " \
-    file://0001-add-VB6-VB8-SPARK.patch;patch=1 \ 
+    file://0001-add-VB6-VB8-SPARK.patch;patch=1 \
+    file://0001-dreambox-h265-streamtype-22.patch \
+"
+
+SRC_URI_append_dm520 = " \
+    file://0001-add-VB6-VB8-SPARK.patch;patch=1 \
+    file://0001-dreambox-h265-streamtype-22.patch \
 "
 
 SRC_URI_append_vusolo4k = " \
@@ -35,6 +42,10 @@ SRC_URI_append_vusolo4k = " \
 "
 
 SRC_URI_append_xc7362 = " \
+    file://0001-add-VB6-VB8-SPARK.patch;patch=1 \
+"
+
+SRC_URI_append_xc7346 = " \
     file://0001-add-VB6-VB8-SPARK.patch;patch=1 \
 "
 
@@ -71,6 +82,30 @@ SRC_URI_append_hd51 = " \
 "
 
 SRC_URI_append_hd52 = " \
+    file://0001-add-vp8-vp9-vp6-spark.patch;patch=1 \
+"
+
+SRC_URI_append_7005s = " \
+    file://0001-add-vp8-vp9-vp6-spark.patch;patch=1 \
+"
+
+SRC_URI_append_7105s = " \
+    file://0001-add-vp8-vp9-vp6-spark.patch;patch=1 \
+"
+
+SRC_URI_append_7215s = " \
+    file://0001-add-vp8-vp9-vp6-spark.patch;patch=1 \
+"
+
+SRC_URI_append_7225s = " \
+    file://0001-add-vp8-vp9-vp6-spark.patch;patch=1 \
+"
+
+SRC_URI_append_dags73625 = " \
+    file://0001-add-vp8-vp9-vp6-spark.patch;patch=1 \
+"
+
+SRC_URI_append_formuler4-turbo = " \
     file://0001-add-vp8-vp9-vp6-spark.patch;patch=1 \
 "
 

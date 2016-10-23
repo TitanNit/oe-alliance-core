@@ -20,7 +20,6 @@ DEPENDS = " \
 	jpeg \
 	rtmpdump \
 	libdreamdvd \
-    ${@base_contains("GST_VERSION", "1.0", "gstreamer1.0-plugins-base gstreamer1.0", "gst-plugins-base gstreamer", d)} \
     "
 
 RDEPENDS_${PN} = " \
@@ -28,16 +27,27 @@ RDEPENDS_${PN} = " \
     hotplug-e2-helper \
     "
 
-RRECOMMENDS_${PN} = " \
+RRECOMMENDS_${PN} = "${@base_contains("TARGET_ARCH", "sh4", "\
+	ffmpeg \
+	libmmeimage \
+	libmmehost \
+	exteplayer3 \
+	", " \
     glib-networking \
-    ${@base_contains("GST_VERSION", "1.0", "gstreamer1.0-plugin-subsink", "gst-plugin-subsink", d)} \
-    ${@base_contains("GST_VERSION", "1.0", "gstreamer1.0-plugin-dvbmediasink", "gst-plugin-dvbmediasink", d)} \
+    gstreamer1.0-plugin-subsink \
+    gstreamer1.0-plugin-dvbmediasink \
+    gstreamer1.0-plugins-base \
+    gstreamer1.0 \
     ${GST_BASE_RDEPS} \
     ${GST_GOOD_RDEPS} \
     ${GST_BAD_RDEPS} \
     ${GST_UGLY_RDEPS} \
-    ${GST_BASE_DVD} \
-    "
+    ${GST_BASE_DVD} ", d)}"
+
+#    ${@base_contains("GST_VERSION", "1.0", "gstreamer1.0-plugin-subsink", "gst-plugin-subsink", d)}
+#    ${@base_contains("GST_VERSION", "1.0", "gstreamer1.0-plugin-dvbmediasink", "gst-plugin-dvbmediasink", d)}
+#    ${@base_contains("GST_VERSION", "1.0", "gstreamer1.0-plugins-base gstreamer1.0", "gst-plugins-base gstreamer", d)}
+
 
 GST_BASE_RDEPS = "${@base_contains('GST_VERSION', '1.0', ' \
     gstreamer1.0-plugins-base-alsa \
@@ -152,30 +162,16 @@ GST_BASE_DVD = "${@base_contains('GST_VERSION', '1.0', ' \
 
 S = "${WORKDIR}/titan"
 
-CFLAGS = "${@base_contains('GST_VERSION', '1.0', ' \
+CFLAGS = " \
 	-I${STAGING_DIR_TARGET}/usr/include \
-	-I${STAGING_DIR_TARGET}/usr/lib/gstreamer-1.0/include \
-	-I${STAGING_DIR_TARGET}/usr/include/gstreamer-1.0 \
-	-I${STAGING_DIR_TARGET}/usr/include/glib-2.0 \
-	-I${STAGING_DIR_TARGET}/usr/include/libxml2 \
-	-I${STAGING_DIR_TARGET}/usr/lib/glib-2.0/include \
 	-I${STAGING_DIR_TARGET}/usr/include/freetype2 \
-	-I${STAGING_DIR_TARGET}/usr/include/dreamdvd \
-	-I${STAGING_DIR_TARGET}/usr/include/libdreamdvd \	
+	-I${STAGING_DIR_TARGET}/usr/include/openssl \
+	-I${STAGING_DIR_TARGET}/usr/include/libmmeimage \
+	-I${STAGING_DIR_TARGET}/usr/include/libeplayer3/include \
+	-I${STAGING_KERNEL_DIR}/extra/bpamem \
 	-I${WORKDIR}/titan/libdreamdvd \
-	-I${WORKDIR}/titan/titan \
-    ', ' \
-	-I${STAGING_DIR_TARGET}/usr/include \
-	-I${STAGING_DIR_TARGET}/usr/include/gstreamer-0.10 \
-	-I${STAGING_DIR_TARGET}/usr/include/glib-2.0 \
-	-I${STAGING_DIR_TARGET}/usr/include/libxml2 \
-	-I${STAGING_DIR_TARGET}/usr/lib/glib-2.0/include \
-	-I${STAGING_DIR_TARGET}/usr/include/freetype2 \
-	-I${STAGING_DIR_TARGET}/usr/include/dreamdvd \
-	-I${STAGING_DIR_TARGET}/usr/include/libdreamdvd \	
-	-I${WORKDIR}/titan/libdreamdvd \
-	-I${WORKDIR}/titan/titan \
-    ', d)}"
+	-I${WORKDIR}/titan/titan"
+
 
 do_compile() {
 	cd ${WORKDIR}/titan/titan
@@ -184,7 +180,11 @@ do_compile() {
 	echo SVNVERSION: ${SVNVERSION}
 
 #    svn update
-	cp Makefile.am.mipsel Makefile.am
+	if [ ${HOST_SYS} = "sh4-oe-linux" ];then
+		cp Makefile.am.sh4 Makefile.am
+	else
+		cp Makefile.am.mipsel Makefile.am
+	fi
 
 	libtoolize --force
 	aclocal -I ${STAGING_DIR_TARGET}/usr/share/aclocal

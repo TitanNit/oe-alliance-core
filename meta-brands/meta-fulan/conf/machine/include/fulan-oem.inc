@@ -206,5 +206,5 @@ include conf/machine/include/autoload-filesystems.inc
 require conf/machine/include/tune-sh4.inc
 
 # add support for extra feeds
-PACKAGE_ARCHS += " ${MACHINEBUILD}"
+#PACKAGE_ARCHS += " ${MACHINEBUILD}"
 

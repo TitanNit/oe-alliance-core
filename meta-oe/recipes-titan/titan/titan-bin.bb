@@ -20,19 +20,10 @@ DEPENDS = " \
 	jpeg \
 	rtmpdump \
 	libdreamdvd \
-    "
-
-RDEPENDS_${PN} = " \
-    glibc-gconv-iso8859-15 \
-    hotplug-e2-helper \
-    "
-
-RRECOMMENDS_${PN} = "${@base_contains("TARGET_ARCH", "sh4", "\
 	ffmpeg \
 	libmmeimage \
 	libmmehost \
 	exteplayer3 \
-	", " \
     glib-networking \
     gstreamer1.0-plugin-subsink \
     gstreamer1.0-plugin-dvbmediasink \
@@ -42,7 +33,28 @@ RRECOMMENDS_${PN} = "${@base_contains("TARGET_ARCH", "sh4", "\
     ${GST_GOOD_RDEPS} \
     ${GST_BAD_RDEPS} \
     ${GST_UGLY_RDEPS} \
-    ${GST_BASE_DVD} ", d)}"
+    ${GST_BASE_DVD}
+    "
+
+RDEPENDS_${PN} = " \
+    glibc-gconv-iso8859-15 \
+    hotplug-e2-helper \
+    "
+RRECOMMENDS_${PN} = " \
+	ffmpeg \
+	libmmeimage \
+	libmmehost \
+	exteplayer3 \
+    glib-networking \
+    gstreamer1.0-plugin-subsink \
+    gstreamer1.0-plugin-dvbmediasink \
+    gstreamer1.0-plugins-base \
+    gstreamer1.0 \
+    ${GST_BASE_RDEPS} \
+    ${GST_GOOD_RDEPS} \
+    ${GST_BAD_RDEPS} \
+    ${GST_UGLY_RDEPS} \
+    ${GST_BASE_DVD}"
 
 #    ${@base_contains("GST_VERSION", "1.0", "gstreamer1.0-plugin-subsink", "gst-plugin-subsink", d)}
 #    ${@base_contains("GST_VERSION", "1.0", "gstreamer1.0-plugin-dvbmediasink", "gst-plugin-dvbmediasink", d)}

@@ -174,7 +174,7 @@ GST_BASE_DVD = "${@base_contains('GST_VERSION', '1.0', ' \
 
 S = "${WORKDIR}/titan"
 
-CFLAGS = " \
+CFLAGS_SH4 = " \
 	-I${STAGING_DIR_TARGET}/usr/include \
 	-I${STAGING_DIR_TARGET}/usr/include/freetype2 \
 	-I${STAGING_DIR_TARGET}/usr/include/openssl \
@@ -184,6 +184,30 @@ CFLAGS = " \
 	-I${WORKDIR}/titan/libdreamdvd \
 	-I${WORKDIR}/titan/titan"
 
+CFLAGS_MIPSEL = "${@base_contains('GST_VERSION', '1.0', ' \
+	-I${STAGING_DIR_TARGET}/usr/include \
+	-I${STAGING_DIR_TARGET}/usr/lib/gstreamer-1.0/include \
+	-I${STAGING_DIR_TARGET}/usr/include/gstreamer-1.0 \
+	-I${STAGING_DIR_TARGET}/usr/include/glib-2.0 \
+	-I${STAGING_DIR_TARGET}/usr/include/libxml2 \
+	-I${STAGING_DIR_TARGET}/usr/lib/glib-2.0/include \
+	-I${STAGING_DIR_TARGET}/usr/include/freetype2 \
+	-I${STAGING_DIR_TARGET}/usr/include/dreamdvd \
+	-I${STAGING_DIR_TARGET}/usr/include/libdreamdvd \	
+	-I${WORKDIR}/titan/libdreamdvd \
+	-I${WORKDIR}/titan/titan \
+    ', ' \
+	-I${STAGING_DIR_TARGET}/usr/include \
+	-I${STAGING_DIR_TARGET}/usr/include/gstreamer-0.10 \
+	-I${STAGING_DIR_TARGET}/usr/include/glib-2.0 \
+	-I${STAGING_DIR_TARGET}/usr/include/libxml2 \
+	-I${STAGING_DIR_TARGET}/usr/lib/glib-2.0/include \
+	-I${STAGING_DIR_TARGET}/usr/include/freetype2 \
+	-I${STAGING_DIR_TARGET}/usr/include/dreamdvd \
+	-I${STAGING_DIR_TARGET}/usr/include/libdreamdvd \	
+	-I${WORKDIR}/titan/libdreamdvd \
+	-I${WORKDIR}/titan/titan \
+    ', d)}"
 
 do_compile() {
 	cd ${WORKDIR}/titan/titan
@@ -194,8 +218,10 @@ do_compile() {
 #    svn update
 	if [ ${HOST_SYS} = "sh4-oe-linux" ];then
 		cp Makefile.am.sh4 Makefile.am
+		CFLAGS = ${CFLAGS_SH4}
 	else
 		cp Makefile.am.mipsel Makefile.am
+		CFLAGS = ${CFLAGS_MIPSEL}
 	fi
 
 	libtoolize --force

@@ -20,7 +20,7 @@ DEPENDS = " \
 	jpeg \
 	rtmpdump \
 	libdreamdvd \
-    ${@base_contains("GST_VERSION", "1.0", "gstreamer1.0-plugins-base gstreamer1.0", "gst-plugins-base gstreamer", d)} \
+	exteplayer3 \
     "
 
 RDEPENDS_${PN} = " \
@@ -28,8 +28,9 @@ RDEPENDS_${PN} = " \
     hotplug-e2-helper \
     "
 
-RRECOMMENDS_${PN} = " \
+RRECOMMENDS_append_mipsel_${PN} = " \
     glib-networking \
+    ${@base_contains("GST_VERSION", "1.0", "gstreamer1.0-plugins-base gstreamer1.0", "gst-plugins-base gstreamer", d)} \
     ${@base_contains("GST_VERSION", "1.0", "gstreamer1.0-plugin-subsink", "gst-plugin-subsink", d)} \
     ${@base_contains("GST_VERSION", "1.0", "gstreamer1.0-plugin-dvbmediasink", "gst-plugin-dvbmediasink", d)} \
     ${GST_BASE_RDEPS} \
@@ -38,6 +39,12 @@ RRECOMMENDS_${PN} = " \
     ${GST_UGLY_RDEPS} \
     ${GST_BASE_DVD} \
     "
+
+RRECOMMENDS_append_sh4_${PN} = " \
+    glib-networking \
+	libmmeimage \
+	libmmehost \
+	"
 
 GST_BASE_RDEPS = "${@base_contains('GST_VERSION', '1.0', ' \
     gstreamer1.0-plugins-base-alsa \
@@ -152,7 +159,7 @@ GST_BASE_DVD = "${@base_contains('GST_VERSION', '1.0', ' \
 
 S = "${WORKDIR}/titan"
 
-CFLAGS = "${@base_contains('GST_VERSION', '1.0', ' \
+CFLAGS_append_mipsel = "${@base_contains('GST_VERSION', '1.0', ' \
 	-I${STAGING_DIR_TARGET}/usr/include \
 	-I${STAGING_DIR_TARGET}/usr/lib/gstreamer-1.0/include \
 	-I${STAGING_DIR_TARGET}/usr/include/gstreamer-1.0 \
@@ -177,6 +184,17 @@ CFLAGS = "${@base_contains('GST_VERSION', '1.0', ' \
 	-I${WORKDIR}/titan/titan \
     ', d)}"
 
+CFLAGS_append_sh4 = " \
+	-I${STAGING_DIR_TARGET}/usr/include \
+	-I${STAGING_DIR_TARGET}/usr/include/freetype2 \
+	-I${STAGING_DIR_TARGET}/usr/include/openssl \
+	-I${STAGING_DIR_TARGET}/usr/include/libmmeimage \
+	-I${STAGING_DIR_TARGET}/usr/include/libeplayer3/include \
+	-I${STAGING_KERNEL_DIR}/extra/bpamem \
+	-I${WORKDIR}/titan/libdreamdvd \
+	-I${WORKDIR}/titan/titan \
+	"
+
 do_compile() {
 	cd ${WORKDIR}/titan/titan
 
@@ -184,7 +202,11 @@ do_compile() {
 	echo SVNVERSION: ${SVNVERSION}
 
 #    svn update
-	cp Makefile.am.mipsel Makefile.am
+	if [ ${HOST_SYS} = "sh4-oe-linux" ];then
+		cp Makefile.am.sh4 Makefile.am
+	else
+		cp Makefile.am.mipsel Makefile.am
+	fi
 
 	libtoolize --force
 	aclocal -I ${STAGING_DIR_TARGET}/usr/share/aclocal

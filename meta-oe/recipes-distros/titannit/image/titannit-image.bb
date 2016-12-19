@@ -29,6 +29,7 @@ IMAGE_INSTALL = "\
 	e2fsprogs-tune2fs \
 	early-configure \
 	ethtool \
+	exteplayer3 \
 	fakelocale \
 	firmware-rtl8192cu \
 	firmware-rt2870 \

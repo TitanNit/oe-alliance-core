@@ -28,11 +28,12 @@ do_configure() {
 
 do_compile() {
     cd ${S}
-    oe_runmake  'DESTDIR=${D}' 'SUBDIRS=${@d.getVar('PN',1).replace('-', '_')}' 
+    oe_runmake  'DESTDIR=${D}' 'SUBDIRS=${@d.getVar('PN',1).replace('-', '_').replace('libmme', 'libmme_')}' 
 }
 
 do_install() {
     cd ${S}
-    oe_runmake  'DESTDIR=${D}' 'SUBDIRS=${@d.getVar('PN',1).replace('-', '_')}' install
+    oe_runmake  'DESTDIR=${D}' 'SUBDIRS=${@d.getVar('PN',1).replace('-', '_').replace('libmme', 'libmme_')}' install
+
 }
 

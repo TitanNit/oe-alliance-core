@@ -15,18 +15,20 @@ RPROVIDES_vuplus-blindscan-dvbs-utils += "virtual/blindscan-dvbs"
 RPROVIDES_vuplus-blindscan-dvbc-utils += "virtual/blindscan-dvbc"
 
 SRC_URI = "http://archive.vuplus.com/download/utils/vuplus-blindscan-utils-${PV}.tar.bz2"
-SRC_URI_arm = "http://archive.vuplus.com/download/utils/vuplus-blindscan-utils-${PV}_arm.tar.gz;name=arm"
+SRC_URI_arm = "http://archive.vuplus.com/download/utils/vuplus-blindscan-utils-${PV}_arm.tar.bz2;name=arm"
 
-PV = "3.8"
-PV_arm = "4.0"
-PR = "r1"
+PV = "4.2"
+PV_arm = "4.6"
+PR = "r10"
 
 S = "${WORKDIR}/blindscan-utils"
 
+INSANE_SKIP_${PN} = "already-stripped"
 FILES_vuplus-blindscan-dvbs-utils = "${bindir}/*_blindscan"
-FILES_vuplus-blindscan-dvbc-utils = "${bindir}/tda1002x ${bindir}/ssh108* ${bindir}/tt3l10*"
+FILES_vuplus-blindscan-dvbc-utils = "${bindir}/tda1002x ${bindir}/ssh108* ${bindir}/tt3l10* ${bindir}/tt2l08* ${bindir}/bcm3148"
+
 FILES_vuplus-blindscan-dvbs-utils-dbg = "${bindir}/.debug/*_blindscan"
-FILES_vuplus-blindscan-dvbc-utils-dbg = "${bindir}/.debug/tda1002x ${bindir}/.debug/ssh108*"
+FILES_vuplus-blindscan-dvbc-utils-dbg = "${bindir}/.debug/tda1002x ${bindir}/.debug/ssh108* ${bindir}/.debug/tt2l08* ${bindir}/.debug/bcm3148"
 
 do_install() {
 	install -d ${D}/${bindir}/
@@ -35,8 +37,8 @@ do_install() {
 	done;
 }
 
-SRC_URI[md5sum] = "0efbbfd6816d00bd808d2897995a87a6"
-SRC_URI[sha256sum] = "486a22c76e051e98dcc54129ca62ad05d41c2fb78a5cdf9324ca161fece00cd7"
+SRC_URI[md5sum] = "8e5b2f437b8d3f2b112300ca2e1539d5"
+SRC_URI[sha256sum] = "d9b9fcfcafb8f89ded56c2bdd4c7bc6639bfdd93b8c8b78a23a40f4fa6219c2b"
 
-SRC_URI[arm.md5sum] = "a8d402731bc957633a28ef88dbec80eb"
-SRC_URI[arm.sha256sum] = "a70c2ec82e6ba1cca71bd61c52dde3d2e6de47f7e168ec57b9ca4af5ef9f2cf4"
+SRC_URI[arm.md5sum] = "f61f4096570ff8fe7ed4d46acc7ba6fb"
+SRC_URI[arm.sha256sum] = "1a9e8fd98c8aace692a66e1150db55bad80a5274650d618d3ad91c38ec67dc55"

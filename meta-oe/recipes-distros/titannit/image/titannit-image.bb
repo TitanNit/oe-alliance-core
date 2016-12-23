@@ -47,11 +47,11 @@ IMAGE_INSTALL = "\
 	kernel-module-pl2303 \
 	kernel-module-belkin-sa \
 	kernel-module-keyspan \
-	kernel-module-ipv6 \
+	${@base_contains('MACHINE', 'disabled-ipv6', '', 'kernel-module-ipv6', d)} \
 	kernel-module-tun \
 	kernel-module-ath9k \
 	kernel-module-carl9170 \
-	kernel-module-ath9k-htc \
+	${@base_contains('MACHINE', 'disabled-ath9k', '', 'kernel-module-ath9k-htc', d)} \
 	kernel-module-rt2800usb \
 	${@base_contains('MACHINE', 'disabled-wlanbuild', '', 'kernel-module-rtl8192cu', d)} \
 	rt3070 \

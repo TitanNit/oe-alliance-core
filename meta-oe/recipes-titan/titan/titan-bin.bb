@@ -202,8 +202,11 @@ do_compile() {
 	echo SVNVERSION: ${SVNVERSION}
 
 #    svn update
+
 	if [ ${HOST_SYS} = "sh4-oe-linux" ];then
 		cp Makefile.am.sh4 Makefile.am
+	elif [ ${HOST_SYS} = "arm-oe-linux-gnueabi" ];then
+		cp Makefile.am.arm Makefile.am
 	else
 		cp Makefile.am.mipsel Makefile.am
 	fi

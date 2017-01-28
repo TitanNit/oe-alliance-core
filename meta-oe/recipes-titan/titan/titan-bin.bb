@@ -21,6 +21,7 @@ DEPENDS = " \
 	rtmpdump \
 	libdreamdvd \
 	exteplayer3 \
+	titan-libeplayer3 \
     "
 
 RDEPENDS_${PN} = " \

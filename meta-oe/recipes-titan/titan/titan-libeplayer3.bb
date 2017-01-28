@@ -13,9 +13,8 @@ PKGV = "2.0+git${GITPKGV}"
 PV = "2.0+svnr${SRCPV}"
 PR = "r3"
 
-SRC_URI = "svn://sbnc.dyndns.tv/svn/tools;module=exteplayer3;protocol=http \
-    file://fix_uint_include.patch;patch=1 \
-"
+SRC_URI = "svn://sbnc.dyndns.tv/svn/tools;module=exteplayer3;protocol=http"
+#    file://fix_uint_include.patch;patch=1
 
 DEPENDS = "ffmpeg libass"
 RDEPENDS_${PN} = "ffmpeg"

@@ -6,7 +6,7 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 require conf/license/license-gplv2.inc
 
-inherit gitpkgv
+inherit autotools pkgconfig
 
 SRCREV = "${AUTOREV}"
 PKGV = "2.0+git${GITPKGV}"
@@ -44,13 +44,14 @@ do_compile() {
     ${STRIP} .libs/libeplayer3.so.0.0.0
 }
 
-FILES_${PN} = "/usr/bin /usr/lib"
+FILES_${PN} = "/usr/bin"
+FILES_${PN} += "/usr/lib"
 
 do_install_append() {
     install -d ${D}/usr/bin
     install -d ${D}/usr/lib
-    install -m 0755 .libs/eplayer3 ${D}/usr/bin  
+    install -m 0755 .libs/eplayer3 ${D}/usr/bin
+    install -m 0755 .libs/libeplayer3.so ${D}/usr/lib 
     install -m 0755 .libs/libeplayer3.so.0 ${D}/usr/lib 
-    install -m 0755 .libs/libeplayer3.so.0.0 ${D}/usr/lib 
     install -m 0755 .libs/libeplayer3.so.0.0.0 ${D}/usr/lib 
 }

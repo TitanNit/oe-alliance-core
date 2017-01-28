@@ -1,6 +1,8 @@
-SUMMARY = "TitanNit is a fast Linux Framebuffer Gui"
+SUMMARY = "libeplayer3 mediaplayer lib and console"
+DESCRIPTION = "Core of movie player for Titan the libeplayer using the ffmpeg solution"
 MAINTAINER = "TitanNit Team"
 SECTION = "multimedia"
+
 LICENSE = "GPLv2"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
@@ -14,16 +16,16 @@ PKGV = "2.0+git${GITPKGV}"
 PV = "2.0+svnr${SRCPV}"
 PR = "r3"
 
-SRC_URI = "svn://sbnc.dyndns.tv/svn/titan;module=exteplayer3;protocol=http"
+SRC_URI = "svn://sbnc.dyndns.tv/svn/titan;module=libeplayer3;protocol=http"
 #    file://fix_uint_include.patch;patch=1
 
 DEPENDS = "ffmpeg libass"
 RDEPENDS_${PN} = "ffmpeg"
 
-S = "${WORKDIR}/exteplayer3"
+S = "${WORKDIR}/libeplayer3"
 
 do_compile() {
-	cd ${WORKDIR}/exteplayer3
+	cd ${WORKDIR}/libeplayer3
 
 	if [ ${HOST_SYS} = "sh4-oe-linux" ];then
 		cp Makefile.am.sh4 Makefile.am
@@ -44,7 +46,7 @@ do_compile() {
     ${STRIP} .libs/eplayer3
     ${STRIP} .libs/libeplayer3.so.0.0.0
     
-#	cp -a ${WORKDIR}/exteplayer3/include ${STAGING_DIR_TARGET}/usr/include/eplayer3
+#	cp -a ${WORKDIR}/libeplayer3/include ${STAGING_DIR_TARGET}/usr/include/eplayer3
 }
 
 FILES_${PN} = "/usr/bin"

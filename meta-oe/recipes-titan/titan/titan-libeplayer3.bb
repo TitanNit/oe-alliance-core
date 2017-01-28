@@ -14,7 +14,7 @@ PKGV = "2.0+git${GITPKGV}"
 PV = "2.0+svnr${SRCPV}"
 PR = "r3"
 
-SRC_URI = "svn://sbnc.dyndns.tv/svn/tools;module=exteplayer3;protocol=http"
+SRC_URI = "svn://sbnc.dyndns.tv/svn/titan;module=exteplayer3;protocol=http"
 #    file://fix_uint_include.patch;patch=1
 
 DEPENDS = "ffmpeg libass"
@@ -44,7 +44,7 @@ do_compile() {
     ${STRIP} .libs/eplayer3
     ${STRIP} .libs/libeplayer3.so.0.0.0
     
-	cp -a ${WORKDIR}/exteplayer3/include ${STAGING_DIR_TARGET}/usr/include/eplayer3
+#	cp -a ${WORKDIR}/exteplayer3/include ${STAGING_DIR_TARGET}/usr/include/eplayer3
 }
 
 FILES_${PN} = "/usr/bin"

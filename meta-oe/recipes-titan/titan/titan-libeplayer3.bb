@@ -43,6 +43,8 @@ do_compile() {
 	make -f Makefile
     ${STRIP} .libs/eplayer3
     ${STRIP} .libs/libeplayer3.so.0.0.0
+    
+	cp -a ${WORKDIR}/exteplayer3/include ${STAGING_DIR_TARGET}/usr/include/eplayer3
 }
 
 FILES_${PN} = "/usr/bin"

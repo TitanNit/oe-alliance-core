@@ -52,7 +52,5 @@ do_install_append() {
     install -d ${D}/usr/bin
     install -d ${D}/usr/lib
     install -m 0755 .libs/eplayer3 ${D}/usr/bin
-    install -m 0755 .libs/libeplayer3.so ${D}/usr/lib 
-    install -m 0755 .libs/libeplayer3.so.0 ${D}/usr/lib 
     install -m 0755 .libs/libeplayer3.so.0.0.0 ${D}/usr/lib 
 }

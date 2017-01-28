@@ -6,7 +6,8 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 require conf/license/license-gplv2.inc
 
-inherit autotools pkgconfig
+#inherit autotools pkgconfig
+inherit pkgconfig
 
 SRCREV = "${AUTOREV}"
 PKGV = "2.0+git${GITPKGV}"

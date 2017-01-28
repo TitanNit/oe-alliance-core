@@ -45,7 +45,8 @@ do_compile() {
 	make -f Makefile
     ${STRIP} .libs/eplayer3
     ${STRIP} .libs/libeplayer3.so.0.0.0
-    
+
+	cp -a ${WORKDIR}/libeplayer3/.libs/* ${STAGING_DIR_TARGET}/usr/lib/
 #	cp -a ${WORKDIR}/libeplayer3/include ${STAGING_DIR_TARGET}/usr/include/eplayer3
 }
 

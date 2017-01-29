@@ -22,6 +22,8 @@ SRC_URI = "svn://sbnc.dyndns.tv/svn/titan;module=libeplayer3;protocol=http"
 DEPENDS = "ffmpeg libass"
 RDEPENDS_${PN} = "ffmpeg"
 
+SSTATE_DUPWHITELIST += "${STAGING_DIR_TARGET}/usr/lib/libeplayer3.so.0.0.0"
+
 S = "${WORKDIR}/libeplayer3"
 
 do_compile() {

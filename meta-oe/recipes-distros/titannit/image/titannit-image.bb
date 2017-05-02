@@ -31,15 +31,6 @@ IMAGE_INSTALL = "\
 	ethtool \
 	exteplayer3 \
 	fakelocale \
-	firmware-rtl8192cu \
-	firmware-rt2870 \
-	firmware-rt3070 \
-	firmware-atheros-ar9271 \
-	firmware-carl9170 \
-	firmware-htc9271 \
-	firmware-htc7010 \
-	firmware-rtl8712u \
-	firmware-rtl8192eu \
 	fuse-exfat \
 	glibc-gconv-iso8859-15 \
 	glib-networking \
@@ -48,18 +39,7 @@ IMAGE_INSTALL = "\
 	kernel-module-pl2303 \
 	kernel-module-belkin-sa \
 	kernel-module-keyspan \
-	${@base_contains('MACHINE', 'disabled-ipv6', '', 'kernel-module-ipv6', d)} \
 	kernel-module-tun \
-	kernel-module-ath9k \
-	kernel-module-carl9170 \
-	${@base_contains('MACHINE', 'disabled-ath9k', '', 'kernel-module-ath9k-htc', d)} \
-	kernel-module-rt2800usb \
-	${@base_contains('MACHINE', 'disabled-wlanbuild', '', 'kernel-module-rtl8192cu', d)} \
-	${@base_contains("MACHINE_FEATURES", "linuxwifi", "kernel-module-rtl8xxxu", "rtl8192eu", d)} \
-	rt3070 \
-	rt8812au \
-	rt8723a \
-	${@base_contains("MACHINE_FEATURES", "wifiusblegacy", "rtl871x", "kernel-module-r8712u", d)} \
 	libdreamdvd \
 	libdvdcss \
 	libusb1 \
@@ -124,6 +104,86 @@ IMAGE_INSTALL = "\
 	titan-bin \
     "
 
+IMAGE_INSTALL_append_mipsel = "\
+	firmware-rtl8192cu \
+	firmware-rt2870 \
+	firmware-rt3070 \
+	firmware-atheros-ar9271 \
+	firmware-carl9170 \
+	firmware-htc9271 \
+	firmware-htc7010 \
+	firmware-rtl8712u \
+	firmware-rtl8192eu \
+	${@base_contains('MACHINE', 'disabled-ipv6', '', 'kernel-module-ipv6', d)} \
+	kernel-module-ath9k \
+	kernel-module-carl9170 \
+	${@base_contains('MACHINE', 'disabled-ath9k', '', 'kernel-module-ath9k-htc', d)} \
+	kernel-module-rt2800usb \
+	${@base_contains('MACHINE', 'disabled-wlanbuild', '', 'kernel-module-rtl8192cu', d)} \
+	${@base_contains("MACHINE_FEATURES", "linuxwifi", "kernel-module-rtl8xxxu", "rtl8192eu", d)} \
+	rt3070 \
+	rt8812au \
+	rt8723a \
+	${@base_contains("MACHINE_FEATURES", "wifiusblegacy", "rtl871x", "kernel-module-r8712u", d)} \
+	${@base_contains('MACHINE', 'disabled-build', '', 'packagegroup-base', d)} \
+	titannit-version-info \
+	titan-gmediarender \
+	${@base_contains("TARGET_ARCH", "sh4", "libmmeimage " , "", d)} \
+    "
+
+IMAGE_INSTALL_append_arm = "\
+	firmware-rtl8192cu \
+	firmware-rt2870 \
+	firmware-rt3070 \
+	firmware-atheros-ar9271 \
+	firmware-carl9170 \
+	firmware-htc9271 \
+	firmware-htc7010 \
+	firmware-rtl8712u \
+	firmware-rtl8192eu \
+	${@base_contains('MACHINE', 'disabled-ipv6', '', 'kernel-module-ipv6', d)} \
+	kernel-module-ath9k \
+	kernel-module-carl9170 \
+	${@base_contains('MACHINE', 'disabled-ath9k', '', 'kernel-module-ath9k-htc', d)} \
+	kernel-module-rt2800usb \
+	${@base_contains('MACHINE', 'disabled-wlanbuild', '', 'kernel-module-rtl8192cu', d)} \
+	${@base_contains("MACHINE_FEATURES", "linuxwifi", "kernel-module-rtl8xxxu", "rtl8192eu", d)} \
+	rt3070 \
+	rt8812au \
+	rt8723a \
+	${@base_contains("MACHINE_FEATURES", "wifiusblegacy", "rtl871x", "kernel-module-r8712u", d)} \
+	${@base_contains('MACHINE', 'disabled-build', '', 'packagegroup-base', d)} \
+	titannit-version-info \
+	titan-gmediarender \
+	${@base_contains("TARGET_ARCH", "sh4", "libmmeimage " , "", d)} \
+    "
+
+IMAGE_INSTALL_append_sh4 = "\
+	firmware-rtl8192cu \
+	firmware-rt2870 \
+	firmware-rt3070 \
+	firmware-atheros-ar9271 \
+	firmware-carl9170 \
+	firmware-htc9271 \
+	firmware-htc7010 \
+	firmware-rtl8712u \
+	firmware-rtl8192eu \
+	${@base_contains('MACHINE', 'disabled-ipv6', '', 'kernel-module-ipv6', d)} \
+	kernel-module-ath9k \
+	kernel-module-carl9170 \
+	${@base_contains('MACHINE', 'disabled-ath9k', '', 'kernel-module-ath9k-htc', d)} \
+	kernel-module-rt2800usb \
+	${@base_contains('MACHINE', 'disabled-wlanbuild', '', 'kernel-module-rtl8192cu', d)} \
+	${@base_contains("MACHINE_FEATURES", "linuxwifi", "kernel-module-rtl8xxxu", "rtl8192eu", d)} \
+	rt3070 \
+	rt8812au \
+	rt8723a \
+	${@base_contains("MACHINE_FEATURES", "wifiusblegacy", "rtl871x", "kernel-module-r8712u", d)} \
+	${@base_contains('MACHINE', 'disabled-build', '', 'packagegroup-base', d)} \
+	titannit-version-info \
+	titan-gmediarender \
+	${@base_contains("TARGET_ARCH", "sh4", "libmmeimage " , "", d)} \
+    "
 
 #
 #    python

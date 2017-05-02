@@ -57,7 +57,6 @@ IMAGE_INSTALL = "\
 	openssl \
 	openvpn \
 	opkg \
-	${@base_contains('MACHINE', 'disabled-build', '', 'packagegroup-base', d)} \
 	packagegroup-core-boot \
 	packagegroup-base-smbfs-client \
     packagegroup-base-smbfs-server \
@@ -163,18 +162,11 @@ IMAGE_INSTALL_append_sh4 = "\
 	firmware-htc7010 \
 	firmware-rtl8712u \
 	firmware-rtl8192eu \
-	${@base_contains('MACHINE', 'disabled-ipv6', '', 'kernel-module-ipv6', d)} \
-	kernel-module-ath9k \
-	kernel-module-carl9170 \
-	${@base_contains('MACHINE', 'disabled-ath9k', '', 'kernel-module-ath9k-htc', d)} \
 	kernel-module-rt2800usb \
-	${@base_contains('MACHINE', 'disabled-wlanbuild', '', 'kernel-module-rtl8192cu', d)} \
 	${@base_contains("MACHINE_FEATURES", "linuxwifi", "kernel-module-rtl8xxxu", "rtl8192eu", d)} \
 	rt3070 \
 	rt8812au \
 	rt8723a \
-	${@base_contains("MACHINE_FEATURES", "wifiusblegacy", "rtl871x", "kernel-module-r8712u", d)} \
-	${@base_contains('MACHINE', 'disabled-build', '', 'packagegroup-base', d)} \
     "
 
 #

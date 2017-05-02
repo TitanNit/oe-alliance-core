@@ -43,8 +43,8 @@ RRECOMMENDS_append_mipsel_${PN} = " \
 
 RRECOMMENDS_append_sh4_${PN} = " \
     glib-networking \
-	libmmeimage \
-	libmmehost \
+	libmme_image \
+	libmme_host \
 	"
 
 GST_BASE_RDEPS = "${@base_contains('GST_VERSION', '1.0', ' \
@@ -189,7 +189,7 @@ CFLAGS_append_sh4 = " \
 	-I${STAGING_DIR_TARGET}/usr/include \
 	-I${STAGING_DIR_TARGET}/usr/include/freetype2 \
 	-I${STAGING_DIR_TARGET}/usr/include/openssl \
-	-I${STAGING_DIR_TARGET}/usr/include/libmmeimage \
+	-I${STAGING_DIR_TARGET}/usr/include/libmme_image \
 	-I${STAGING_DIR_TARGET}/usr/include/libeplayer3/include \
 	-I${STAGING_KERNEL_DIR}/extra/bpamem \
 	-I${WORKDIR}/titan/libdreamdvd \

@@ -181,7 +181,6 @@ IMAGE_INSTALL_append_sh4 = "\
 	${@base_contains('MACHINE', 'disabled-build', '', 'packagegroup-base', d)} \
 	titannit-version-info \
 	titan-gmediarender \
-	${@base_contains("TARGET_ARCH", "sh4", "libmmeimage " , "", d)} \
     "
 
 #

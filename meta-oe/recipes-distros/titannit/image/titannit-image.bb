@@ -76,8 +76,6 @@ IMAGE_INSTALL = "\
 	smbnetfs \
 	strace \
 	titannit-bootlogo \
-	titannit-version-info \
-	titan-gmediarender \
 	titan-rarfs \
 	tuxtxt-enigma2 \
 	tzdata tzdata-europe tzdata-australia tzdata-asia tzdata-pacific tzdata-africa tzdata-americas \
@@ -179,8 +177,6 @@ IMAGE_INSTALL_append_sh4 = "\
 	rt8723a \
 	${@base_contains("MACHINE_FEATURES", "wifiusblegacy", "rtl871x", "kernel-module-r8712u", d)} \
 	${@base_contains('MACHINE', 'disabled-build', '', 'packagegroup-base', d)} \
-	titannit-version-info \
-	titan-gmediarender \
     "
 
 #

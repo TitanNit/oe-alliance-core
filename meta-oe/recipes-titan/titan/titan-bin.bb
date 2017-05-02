@@ -24,6 +24,10 @@ DEPENDS = " \
 	titan-libeplayer3 \
     "
 
+DEPENDS_append_sh4 = " \
+	libmme-image \
+    "
+
 RDEPENDS_${PN} = " \
     glibc-gconv-iso8859-15 \
     hotplug-e2-helper \
@@ -43,7 +47,6 @@ RRECOMMENDS_append_mipsel_${PN} = " \
 
 RRECOMMENDS_append_sh4_${PN} = " \
     glib-networking \
-	libmme-image \
 	libmme-host \
 	"
 

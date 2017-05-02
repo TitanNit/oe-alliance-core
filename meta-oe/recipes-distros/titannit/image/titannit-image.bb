@@ -125,7 +125,6 @@ IMAGE_INSTALL_append_mipsel = "\
 	${@base_contains('MACHINE', 'disabled-build', '', 'packagegroup-base', d)} \
 	titannit-version-info \
 	titan-gmediarender \
-	${@base_contains("TARGET_ARCH", "sh4", "libmme_image " , "", d)} \
     "
 
 IMAGE_INSTALL_append_arm = "\
@@ -152,7 +151,6 @@ IMAGE_INSTALL_append_arm = "\
 	${@base_contains('MACHINE', 'disabled-build', '', 'packagegroup-base', d)} \
 	titannit-version-info \
 	titan-gmediarender \
-	${@base_contains("TARGET_ARCH", "sh4", "libmme_image " , "", d)} \
     "
 
 IMAGE_INSTALL_append_sh4 = "\

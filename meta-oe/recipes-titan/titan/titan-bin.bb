@@ -43,8 +43,8 @@ RRECOMMENDS_append_mipsel_${PN} = " \
 
 RRECOMMENDS_append_sh4_${PN} = " \
     glib-networking \
-	libmme_image \
-	libmme_host \
+	libmme-image \
+	libmme-host \
 	"
 
 GST_BASE_RDEPS = "${@base_contains('GST_VERSION', '1.0', ' \

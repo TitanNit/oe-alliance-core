@@ -227,7 +227,9 @@ do_compile() {
 
 FILES_${PN} = "/usr/local/bin"
 
-do_install_append() {
+do_install() {
     install -d ${D}/usr/local/bin
     install -m 0755 titan/titan ${D}/usr/local/bin/titan   
 }
+do_install[vardepsexclude] += "DATETIME"
+

@@ -46,7 +46,6 @@ IMAGE_INSTALL_append_mipsel = "\
 	rt8723a \
 	${@base_contains("MACHINE_FEATURES", "wifiusblegacy", "rtl871x", "kernel-module-r8712u", d)} \
 	${@base_contains('MACHINE', 'disabled-build', '', 'packagegroup-base', d)} \
-	titannit-version-info \
 	titan-gmediarender \
     "
 
@@ -72,7 +71,6 @@ IMAGE_INSTALL_append_arm = "\
 	rt8723a \
 	${@base_contains("MACHINE_FEATURES", "wifiusblegacy", "rtl871x", "kernel-module-r8712u", d)} \
 	${@base_contains('MACHINE', 'disabled-build', '', 'packagegroup-base', d)} \
-	titannit-version-info \
 	titan-gmediarender \
     "
 
@@ -92,6 +90,7 @@ IMAGE_INSTALL_append_sh4 = "\
 	rt8812au \
 	rt8723a \
     "
+#	titannit-version-info
 
 #
 #    python

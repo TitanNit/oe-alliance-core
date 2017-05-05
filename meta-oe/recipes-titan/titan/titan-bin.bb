@@ -225,11 +225,13 @@ do_compile() {
     ${STRIP} titan
 }
 
-FILES_${PN} = "/usr/local/bin"
+FILES_${PN} = "oealliance/* /usr/local/bin"
 
 do_install() {
     install -d ${D}/usr/local/bin
-    install -m 0755 titan/titan ${D}/usr/local/bin/titan   
+    install -m 0755 titan/titan ${D}/usr/local/bin/titan
+    cp -a oealliance/* ${D}
 }
 do_install[vardepsexclude] += "DATETIME"
+
 

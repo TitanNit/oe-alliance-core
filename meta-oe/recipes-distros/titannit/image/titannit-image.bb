@@ -22,6 +22,7 @@ DEPENDS = " \
 do_rootfs[deptask] = "do_rm_work"
 
 IMAGE_INSTALL = "\
+	${DISTRO}-base \
     "
 
 IMAGE_INSTALL_append_mipsel = "\

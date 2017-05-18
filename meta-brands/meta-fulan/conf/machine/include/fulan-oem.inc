@@ -207,7 +207,7 @@ require conf/machine/include/tune-sh4.inc
 require conf/machine/include/soc-family.inc
 
 # add support for extra feeds
-PACKAGE_ARCHS += " ${MACHINEBUILD}"
+#PACKAGE_ARCHS += " ${MACHINEBUILD}"
 
 # Add "MACHINEBUILD" override for recipes
 MACHINEOVERRIDES =. "${@['', '${MACHINEBUILD}:']['${MACHINEBUILD}' != '']}"

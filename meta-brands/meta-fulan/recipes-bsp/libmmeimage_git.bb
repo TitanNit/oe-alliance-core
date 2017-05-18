@@ -7,11 +7,13 @@ PR = "r0"
 
 do_install_append () {
 	install -d ${D}${includedir}/libmmeimage
-	install -m 644 ${S}/libmmeimage/*.h ${D}${includedir}/libmmeimage
+	install -m 644 ${S}/libmme_image/*.h ${D}${includedir}/libmmeimage
+	echo ${S}/libmmeimage
+#	exitt
 }
 
 FILES_${PN} += "${libdir}/libmmeimage.so"
-FILES_${PN}-dev = "${includedir}/libmmeimage ${libdir}/libmmeimage.la"
+FILES_${PN}-dev = "${includedir}/libmme_image ${libdir}/libmmeimage.la"
 
 INSANE_SKIP_${PN} += "dev-so"
 

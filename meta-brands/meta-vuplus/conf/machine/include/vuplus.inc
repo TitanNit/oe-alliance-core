@@ -55,9 +55,12 @@ BOOTLOGO_FILENAME = "splash_cfe_auto.bin"
 MACHINE_FEATURES += "3dtv alsa hdmicec switchoff bootsplash blindscan-tbs"
 
 require conf/machine/include/soc-family.inc
+<<<<<<< HEAD
 
 # Add "MACHINEBUILD" override for recipes
 MACHINEOVERRIDES =. "${@['', '${MACHINEBUILD}:']['${MACHINEBUILD}' != '']}"
 
 BBMASK = "meta-octagon/"
 
+=======
+>>>>>>> 4f58c88e9d0ec24aca8360de76c49e6d42d1d72d

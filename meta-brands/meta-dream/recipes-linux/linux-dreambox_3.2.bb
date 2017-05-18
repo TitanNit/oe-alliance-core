@@ -41,6 +41,13 @@ SRC_URI = " \
     file://dvb_usb_disable_rc_polling.patch \
     file://dvb-usb-smsdvb_fix_frontend.patch \
     file://0001-it913x-backport-changes-to-3.2-kernel.patch \
+<<<<<<< HEAD
+=======
+    file://0001-correctly-initiate-nand-flash-ecc-config-when-old-2n.patch \
+    file://rtl8712-fix-warnings.patch \
+    file://fixme-hardfloat.patch \
+    file://add-mnt-part.patch \
+>>>>>>> 4f58c88e9d0ec24aca8360de76c49e6d42d1d72d
     file://defconfig \
 "
 

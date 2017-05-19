@@ -12,7 +12,7 @@ require conf/license/license-gplv2.inc
 inherit pkgconfig
 
 SRCREV = "${AUTOREV}"
-PKGV = "2.0+git${GITPKGV}"
+PKGV = "2.0+svnr${GITPKGV}"
 PV = "2.0+svnr${SRCPV}"
 PR = "r3"
 

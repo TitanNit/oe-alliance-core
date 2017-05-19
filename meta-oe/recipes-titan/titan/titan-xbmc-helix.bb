@@ -39,7 +39,7 @@ CACHED_CONFIGUREVARS += " \
     ac_cv_path_PYTHON="${STAGING_BINDIR_NATIVE}/python-native/python" \
 "
 
-PACKAGECONFIG ??= "${@base_contains('DISTRO_FEATURES', 'opengl', 'opengl', 'openglesv2', d)}"
+PACKAGECONFIG ??= "${@bb.utils.contains('DISTRO_FEATURES', 'opengl', 'opengl', 'openglesv2', d)}"
 PACKAGECONFIG[opengl] = "--enable-gl,--enable-gles,glew"
 PACKAGECONFIG[openglesv2] = "--enable-gles,--enable-gl,"
 
@@ -220,6 +220,6 @@ RRECOMMENDS_${PN}_append = " libcec \
                              python-netclient \
                              libcurl \
                              xdpyinfo \
-                             ${@base_contains('DISTRO_FEATURES', 'opengl', 'mesa-demos', '', d)} \
+                             ${@bb.utils.contains('DISTRO_FEATURES', 'opengl', 'mesa-demos', '', d)} \
 "
 RRECOMMENDS_${PN}_append_libc-glibc = " glibc-charmap-ibm850 glibc-gconv-ibm850"

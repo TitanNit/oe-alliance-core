@@ -35,18 +35,18 @@ IMAGE_INSTALL_append_mipsel = "\
 	firmware-htc7010 \
 	firmware-rtl8712u \
 	firmware-rtl8192eu \
-	${@base_contains('MACHINE', 'disabled-ipv6', '', 'kernel-module-ipv6', d)} \
+	${@bb.utils.contains('MACHINE', 'disabled-ipv6', '', 'kernel-module-ipv6', d)} \
 	kernel-module-ath9k \
 	kernel-module-carl9170 \
-	${@base_contains('MACHINE', 'disabled-ath9k', '', 'kernel-module-ath9k-htc', d)} \
+	${@bb.utils.contains('MACHINE', 'disabled-ath9k', '', 'kernel-module-ath9k-htc', d)} \
 	kernel-module-rt2800usb \
-	${@base_contains('MACHINE', 'disabled-wlanbuild', '', 'kernel-module-rtl8192cu', d)} \
-	${@base_contains("MACHINE_FEATURES", "linuxwifi", "kernel-module-rtl8xxxu", "rtl8192eu", d)} \
+	${@bb.utils.contains('MACHINE', 'disabled-wlanbuild', '', 'kernel-module-rtl8192cu', d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "linuxwifi", "kernel-module-rtl8xxxu", "rtl8192eu", d)} \
 	rt3070 \
 	rt8812au \
 	rt8723a \
-	${@base_contains("MACHINE_FEATURES", "wifiusblegacy", "rtl871x", "kernel-module-r8712u", d)} \
-	${@base_contains('MACHINE', 'disabled-build', '', 'packagegroup-base', d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "wifiusblegacy", "rtl871x", "kernel-module-r8712u", d)} \
+	${@bb.utils.contains('MACHINE', 'disabled-build', '', 'packagegroup-base', d)} \
 	titan-gmediarender \
     "
 
@@ -60,18 +60,18 @@ IMAGE_INSTALL_append_arm = "\
 	firmware-htc7010 \
 	firmware-rtl8712u \
 	firmware-rtl8192eu \
-	${@base_contains('MACHINE', 'disabled-ipv6', '', 'kernel-module-ipv6', d)} \
+	${@bb.utils.contains('MACHINE', 'disabled-ipv6', '', 'kernel-module-ipv6', d)} \
 	kernel-module-ath9k \
 	kernel-module-carl9170 \
-	${@base_contains('MACHINE', 'disabled-ath9k', '', 'kernel-module-ath9k-htc', d)} \
+	${@bb.utils.contains('MACHINE', 'disabled-ath9k', '', 'kernel-module-ath9k-htc', d)} \
 	kernel-module-rt2800usb \
-	${@base_contains('MACHINE', 'disabled-wlanbuild', '', 'kernel-module-rtl8192cu', d)} \
-	${@base_contains("MACHINE_FEATURES", "linuxwifi", "kernel-module-rtl8xxxu", "rtl8192eu", d)} \
+	${@bb.utils.contains('MACHINE', 'disabled-wlanbuild', '', 'kernel-module-rtl8192cu', d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "linuxwifi", "kernel-module-rtl8xxxu", "rtl8192eu", d)} \
 	rt3070 \
 	rt8812au \
 	rt8723a \
-	${@base_contains("MACHINE_FEATURES", "wifiusblegacy", "rtl871x", "kernel-module-r8712u", d)} \
-	${@base_contains('MACHINE', 'disabled-build', '', 'packagegroup-base', d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "wifiusblegacy", "rtl871x", "kernel-module-r8712u", d)} \
+	${@bb.utils.contains('MACHINE', 'disabled-build', '', 'packagegroup-base', d)} \
 	titan-gmediarender \
     "
 
@@ -86,7 +86,7 @@ IMAGE_INSTALL_append_sh4 = "\
 	firmware-rtl8712u \
 	firmware-rtl8192eu \
 	kernel-module-rt2800usb \
-	${@base_contains("MACHINE_FEATURES", "linuxwifi", "kernel-module-rtl8xxxu", "rtl8192eu", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "linuxwifi", "kernel-module-rtl8xxxu", "rtl8192eu", d)} \
 	rt3070 \
 	rt8812au \
 	rt8723a \
@@ -119,23 +119,23 @@ IMAGE_INSTALL_append_sh4 = "\
 #    python-subprocess
 #    python-process
 #    python-imaging
-#	${@base_contains("MACHINE_FEATURES", "dreambox", "", "ofgwrite", d)} \
+#	${@bb.utils.contains("MACHINE_FEATURES", "dreambox", "", "ofgwrite", d)} \
 # disable for packagegroup-base
 #	libcrypto-compat-0.9.7
 #	libcrypto-compat-0.9.8
 # disable for dm7200hd
 #	kernel-module-rtl8192cu
 # disabled building on svn
-#	${@base_contains('MACHINE', 'vusolo2', 'titan-xbmc-helix', '', d)} \
-#	${@base_contains('MACHINE', 'inihdp', 'titan-xbmc-nightly', '', d)} \
+#	${@bb.utils.contains('MACHINE', 'vusolo2', 'titan-xbmc-helix', '', d)} \
+#	${@bb.utils.contains('MACHINE', 'inihdp', 'titan-xbmc-nightly', '', d)} \
 #    snes9x-sdl
 #    libavahi-client
 #    minidlna
-#    ${@base_contains('MACHINEBUILD', 'atemionemesis', '', 'titan-xbmc', d)} \
+#    ${@bb.utils.contains('MACHINEBUILD', 'atemionemesis', '', 'titan-xbmc', d)} \
 #    ${@base_conditional('MACHINE', 'inihdp', '', 'titan-xbmc', d)} \
-#    ${@base_contains('MACHINEBUILD', 'atemionemesis', '', 'titan-xbmc', d)} \
+#    ${@bb.utils.contains('MACHINEBUILD', 'atemionemesis', '', 'titan-xbmc', d)} \
 #    titan-bin
-#    ${@base_contains("TARGET_ARCH", "mipsel", "gst-plugin-libxt" , "", d)} \
+#    ${@bb.utils.contains("TARGET_ARCH", "mipsel", "gst-plugin-libxt" , "", d)} \
 #    titan-plugins
 #    enigma2-locale-meta test fpr glibc only
 

@@ -8,7 +8,7 @@
 -		.size = MTDPART_SIZ_FULL,
 -		.offset = 0x00000000,
 +		.name = "rootfs",
-+		.size = 0x1f400000, //0x1f000000, 0x1e000000, 0xc000000
++		.size = 0x1f500000, //0x1f400000, 0x1f000000, 0x1e000000, 0xc000000
 +		.offset = 0,
      #if defined(CONFIG_DREAMBOX)
  		.mask_flags = MTD_WRITEABLE,

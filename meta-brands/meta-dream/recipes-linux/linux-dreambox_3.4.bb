@@ -17,7 +17,6 @@ SRC_URI = " \
     file://0002-block2mtd-add-possibility-to-remove-block2mtd-device.patch \
     file://0003-mtd-block2mtd-throttle-writes-by-calling-balance_dir.patch \
     file://0004-enabled-block2mtd-driver-for-dm520-build-mtdram-kern.patch \
-    file://add.mnt.part.patch \
     file://defconfig \
 "
 SRC_URI[kernel.md5sum] = "967f72983655e2479f951195953e8480"

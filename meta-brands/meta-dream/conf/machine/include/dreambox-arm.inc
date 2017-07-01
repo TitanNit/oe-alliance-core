@@ -18,6 +18,7 @@ require conf/machine/include/tune-cortexa15.inc
 MACHINE_EXTRA_RRECOMMENDS = " \
     gstreamer1.0-plugin-dvbmediasink \
     gstreamer1.0-libav \
+    ntfs-3g \
     kernel-module-cifs \
     kernel-module-autofs4 \
     kernel-module-hmac \
@@ -28,21 +29,17 @@ MACHINE_EXTRA_RRECOMMENDS = " \
     kernel-module-exportfs \
     kernel-module-snd-oss \
     kernel-module-snd-pcm-oss \
-    ${@bb.utils.contains('MACHINE_FEATURES', 'v3d', 'libvc5dream', '',d)} \
     "
 
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS += "\
     dreambox-dvb-modules-${MACHINE} \
     "
-
-DISTRO_FEATURES_remove = "directfb gtk-directfb"
     
 MACHINE_FEATURES += "dreambox alsa usbhost 3dtv switchoff blindscan-dvbs boxmodel"
 # Add "dreambox" override for recipes
 MACHINEOVERRIDES .= ":dreambox"
 
 PREFERRED_PROVIDER_virtual/kernel = "linux-dreambox"
-PREFERRED_PROVIDER_virtual/kodi = "stb-kodi-${MACHINE}"
 
 PREFERRED_PROVIDER_virtual/blindscan-dvbs = "dreambox-blindscan-utils"
 PREFERRED_PROVIDER_virtual/blindscan-dvbc = "dreambox-blindscan-utils"

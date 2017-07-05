@@ -45,7 +45,7 @@ SRC_URI = " \
     file://kernel-add-support-for-gcc6.patch \
     file://misc_latin1_to_utf8_conversions.patch \
     file://0001-dvb_frontend-backport-multistream-support.patch \
-    file://add-mnt-part.patch \
+	file://add-mnt-part.patch \
 "
 
 PACKAGES_DYNAMIC = "kernel-*"

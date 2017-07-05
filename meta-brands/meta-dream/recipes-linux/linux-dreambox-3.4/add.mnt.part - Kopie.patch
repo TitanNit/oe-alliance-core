@@ -1,0 +1,76 @@
+--- a/drivers/brcmstb/board.c	2017-05-20 19:14:26.000000000 +0200
++++ b/drivers/brcmstb/board.c.patched	2017-05-20 19:23:13.000000000 +0200
+@@ -758,21 +758,21 @@
+ 
+ static struct mtd_partition fixed_partition_map[] = {
+ 	{
+-		.name = "entire_device",
+-		.size = MTDPART_SIZ_FULL,
+-		.offset = 0x00000000,
+-    #if defined(CONFIG_DREAMBOX)
+-		.mask_flags = MTD_WRITEABLE,
++		.name = "rootfs",
++		.size = 0x1f000000, //0x1f500000, //0x1f400000, 0x1f000000, 0x1e000000, 0xc000000
++		.offset = 0,
++    #if defined(CONFIG_DREAMBOX)
++//		.mask_flags = MTD_WRITEABLE,
+ 	}, {
+-		.name = "bootloader",
+-		.size = 0x00100000,
+-		.offset = 0x00000000,
+-		.mask_flags = MTD_WRITEABLE,
++		.name = "mnt", // "entire_device",
++		.size = 0x500000, //0x20000000, //0x100000, //0x500000, //0x1500000 //0x13500000 MTDPART_SIZ_FULL,
++		.offset = 0x1f000000, //0, //MTDPART_OFS_APPEND,
++//		.mask_flags = MTD_WRITEABLE,
+ 	}, {
+-		.name = "recovery",
+-		.size = MTDPART_SIZ_FULL,
+-		.offset = 0x00100000,
+-    #endif
++		.name = "kernel",
++		.size = 0x500000,
++		.offset = 0x1f500000,
++    #endif
+ 	},
+ };
+ 
+--- a/arch/mips/configs/dm520_defconfig	2017-05-03 23:56:23.000000000 +0200
++++ b/arch/mips/configs/dm520_defconfig.patched	2017-05-20 19:29:23.000000000 +0200
+@@ -86,9 +86,9 @@
+ #
+ CONFIG_BRCM_CONSOLE_DEVICE=0
+ CONFIG_BRCM_FLASH=y
+-# CONFIG_BRCM_FIXED_MTD_PARTITIONS is not set
++CONFIG_BRCM_FIXED_MTD_PARTITIONS=y
+ CONFIG_MTD_BRCMNAND=y
+-CONFIG_SPI_BRCMSTB=y
++# CONFIG_SPI_BRCMSTB is not set
+ CONFIG_BCMGENET=y
+ 
+ #
+@@ -123,13 +123,13 @@
+ CONFIG_BRCM_HAS_GENET_0=y
+ # CONFIG_BRCM_SATA_75MHZ_PLL is not set
+ # CONFIG_BRCM_SATA_SINGLE_PORT is not set
+-CONFIG_BRCM_HAS_NOR=y
++# CONFIG_BRCM_HAS_NOR is not set
+ CONFIG_BRCM_HAS_NAND_MINOR_0=y
+ CONFIG_BRCM_HAS_NAND_MAJOR_5=y
+ CONFIG_BRCMNAND_MAJOR_VERS=5
+ CONFIG_BRCMNAND_MINOR_VERS=0
+ CONFIG_BRCM_HAS_NAND=y
+-CONFIG_BRCM_HAS_SPI=y
++# CONFIG_BRCM_HAS_SPI is not set
+ CONFIG_BRCM_HAS_BSPI_V4=y
+ CONFIG_BRCM_BSPI_MAJOR_VERS=4
+ CONFIG_BRCM_HAS_WKTMR=y
+@@ -934,7 +934,7 @@
+ # Mapping drivers for chip access
+ #
+ # CONFIG_MTD_COMPLEX_MAPPINGS is not set
+-CONFIG_MTD_PHYSMAP=y
++# CONFIG_MTD_PHYSMAP is not set
+ # CONFIG_MTD_PHYSMAP_COMPAT is not set
+ # CONFIG_MTD_PLATRAM is not set
+ 

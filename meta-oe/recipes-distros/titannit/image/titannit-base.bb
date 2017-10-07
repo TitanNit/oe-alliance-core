@@ -86,13 +86,13 @@ RDEPENDS_${PN} = "\
 	\
 	\	
 	${@base_conditional('MACHINE', 'dm800', '', 'mtd-utils-ubifs', d)} \
-	${@base_contains("MACHINE_FEATURES", "dvbc-only", "", "", d)} \
-	${@base_contains("MACHINE_FEATURES", "iniwol", "ini-coldboot ini-ethwol", "", d)} \
-	${@base_contains("MACHINE_FEATURES", "libpassthrough", "libpassthrough libdlsym", "", d)} \
-	${@base_contains("MACHINE_FEATURES", "no-nmap", "" , "nmap", d)} \
-	${@base_contains("MACHINE_FEATURES", "singlecore", "", \
+	${@bb.utils.contains("MACHINE_FEATURES", "dvbc-only", "", "", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "iniwol", "ini-coldboot ini-ethwol", "", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "libpassthrough", "libpassthrough libdlsym", "", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "no-nmap", "" , "nmap", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "singlecore", "", \
 	" \
 	", d)} \
-	${@base_contains("TARGET_ARCH", "sh4", "alsa-utils-amixer-conf" , "", d)} \
+	${@bb.utils.contains("TARGET_ARCH", "sh4", "alsa-utils-amixer-conf" , "", d)} \
 	titan-libeplayer3 \
     "    

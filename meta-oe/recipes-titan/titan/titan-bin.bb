@@ -8,7 +8,7 @@ require conf/license/license-gplv2.inc
 
 inherit gitpkgv
 
-SRCREV = "${AUTOREV}"
+SRCREV = "41323"
 PKGV = "2.0+svnr${GITPKGV}"
 PV = "2.0+svnr${SRCPV}"
 PR = "r3"
@@ -211,7 +211,7 @@ do_compile() {
 	if [ ${HOST_SYS} = "sh4-oe-linux" ];then
 		cp Makefile.am.sh4 Makefile.am
 	elif [ ${HOST_SYS} = "arm-oe-linux-gnueabi" ];then
-		cp Makefile.am.arm Makefile.am
+		cp Makefile.am.arm.${MACHINE} Makefile.am
 	else
 		cp Makefile.am.mipsel Makefile.am
 	fi

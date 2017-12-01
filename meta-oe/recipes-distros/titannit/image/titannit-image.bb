@@ -67,7 +67,7 @@ IMAGE_INSTALL_append_arm = "\
 	kernel-module-rt2800usb \
 	${@bb.utils.contains('MACHINE', 'disabled-wlanbuild', '', 'kernel-module-rtl8192cu', d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "linuxwifi", "kernel-module-rtl8xxxu", "rtl8192eu", d)} \
-	rt3070 \
+	${@bb.utils.contains('MACHINE', 'disabled-rt3070', '', 'rt3070', d)} \
 	rt8812au \
 	rt8723a \
 	${@bb.utils.contains("MACHINE_FEATURES", "wifiusblegacy", "rtl871x", "kernel-module-r8712u", d)} \

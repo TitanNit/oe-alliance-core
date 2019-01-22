@@ -1,10 +1,10 @@
-SRCDATE = "20170726"
+SRCDATE = "20180403"
 
 KV = "4.8.3"
 
-SRC_URI[md5sum] = "f69aa4e629967ce5fb566c1b8780610a"
-SRC_URI[sha256sum] = "f50764967dfa9c24512dcb7d90b16a216dafc3a5c00cc6108ea651c4adc3fbbe"
+SRC_URI[md5sum] = "cb92f5bc77d9f1fa527ac2dc4f01995c"
+SRC_URI[sha256sum] = "a28d4d57233f9ad18b78e5ce79162c668bf9727687621329b34310bca5acafe7"
 
-SRC_URI = "http://impex-sat.de/gigablue/drivers/gigablue-drivers-${KV}-BCM7356-${SRCDATE}.zip"
+SRC_URI = "http://source.mynonpublic.com/gigablue/drivers/gigablue-drivers-${KV}-BCM7356-${SRCDATE}.zip"
 
 require gigablue-dvb-modules.inc

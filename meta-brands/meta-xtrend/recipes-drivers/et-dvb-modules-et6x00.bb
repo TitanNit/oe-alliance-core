@@ -1,11 +1,11 @@
 KV = "3.8.7"
-SRCDATE = "20130524"
+SRCDATE = "20180412"
 
-SRC_URI = "http://www.et-view.com/img_up/shop_pds/bh190/Img_Xtrend/${MACHINE}-drivers-${KV}-${SRCDATE}.zip"
+SRC_URI = "http://source.mynonpublic.com/xtrend/${MACHINE}-drivers-${KV}-${SRCDATE}.zip"
 
 RDEPENDS_${PN} += "et-fpupdate-${MACHINE}"
 
 require et-dvb-modules.inc
 
-SRC_URI[md5sum] = "50c88a159554e8b27b77ca107138058b"
-SRC_URI[sha256sum] = "3d3393ef2198fe61b74f242f9985e58480bcebaaf988b63922404ab34d0bdba3"
+SRC_URI[md5sum] = "2ff542f55d8d2f80f6610538b7bb1465"
+SRC_URI[sha256sum] = "9f323285449cc14ccd54863b85df41161d5e1afbe552ba37e41cc68aca5a38fd"

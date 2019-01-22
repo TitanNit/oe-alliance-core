@@ -3,26 +3,30 @@ MAINTAINER = "stein17"
 
 require conf/license/license-gplv2.inc
 
-inherit gitpkgv allarch
+inherit gitpkgv
 
 SRCREV = "${AUTOREV}"
-PV = "3.0+git${SRCPV}"
-PKGV = "3.0+git${GITPKGV}"
-VER="3.0"
+PV = "3.4+git${SRCPV}"
+PKGV = "3.4+git${GITPKGV}"
+VER="3.4"
 
-SRC_URI="git://github.com/stein17/AX-Blue-FHD-4ATV.git;protocol=git"
+RDEPENDS_${PN} = "enigma2-plugin-systemplugins-weathercomponenthandler, enigma2-plugin-skincomponents-weathercomponent"
 
-FILES_${PN} = "/usr/*"
+SRC_URI="git://github.com/stein17/Skins-for-openATV.git;protocol=git"
 
-S = "${WORKDIR}/git"
+FILES_${PN} = "${libdir} /usr/share"
+
+S = "${WORKDIR}/git/AX-Blue-FHD-4ATV"
 
 do_compile_append() {
 python -O -m compileall ${S}
 }
 
 do_install() {
-    install -d ${D}/usr/share/enigma2
-    cp -rp ${S}/usr ${D}/
+    install -d ${D}${libdir}
+    install -d ${D}/usr/share
+    cp -rp ${S}/usr/lib/* ${D}${libdir}/
+    cp -rp ${S}/usr/share/* ${D}/usr/share/
     chmod -R a+rX ${D}/usr/share/enigma2/
 }
 

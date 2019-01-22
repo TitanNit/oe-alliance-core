@@ -6,14 +6,14 @@ MODULE = "linux-3.14.28"
 
 inherit kernel machine_kernel_pr
 
-MACHINE_KERNEL_PR_append = "r8"
+MACHINE_KERNEL_PR_append = "r9"
 
 SRC_URI[md5sum] = "c1e96f702ca737630f5acb0dce2388e7"
 SRC_URI[sha256sum] = "72928012a7dbacbf95a371d9faa6800a20afd6b106958298cfc41028878aac4e"
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
 
-SRC_URI += "http://impex-sat.de/gigablue/linux/gigablue-linux-${PV}-20170331.tar.gz \
+SRC_URI += "http://source.mynonpublic.com/gigablue/linux/gigablue-linux-${PV}-20170331.tar.gz \
 	file://defconfig \
 	file://linux_dvb_adapter.patch \
 	file://bcm_genet_disable_warn.patch \

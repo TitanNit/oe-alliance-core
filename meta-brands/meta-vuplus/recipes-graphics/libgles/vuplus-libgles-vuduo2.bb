@@ -1,7 +1,9 @@
-SRCDATE = "20171204"
+SRCDATE = "20180319"
 SRCDATE_PR = "r0"
+
+COMPATIBLE_MACHINE = "^(vuduo2)$"
 
 require vuplus-libgles.inc
 
-SRC_URI[md5sum] = "5608e73135bb0e47f45b545f0f04809e"
-SRC_URI[sha256sum] = "a0d653131ecf93a1943dfb1cad97305e5dd22af38e037be55b6f2dd71ce28266"
+SRC_URI[md5sum] = "3ca4bba77abc02a175d51af420c03d58"
+SRC_URI[sha256sum] = "d404e4aa8350d393085ac925c3450a85155cd57f10bb154dd82f4069cad8134e"

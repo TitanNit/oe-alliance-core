@@ -10,11 +10,14 @@ RDEPENDS_${PN} = "curl"
 PV = "${SRCDATE}"
 PR = "r1"
 
-inherit lib_package
+inherit lib_package pkgconfig
 
-SRC_URI = "http://source.mynonpublic.com/dinobot/${MACHINE}-libs-${SRCDATE}.tar.gz"
+SRC_URI = "http://source.mynonpublic.com/dinobot/${MACHINE}-libs-${SRCDATE}.zip"
 
 S = "${WORKDIR}/hilib"
+
+SOLIBS = ".so"
+FILES_SOLIBSDEV = ""
 
 do_configure() {
 }
@@ -30,6 +33,9 @@ do_install() {
 	install -m 0755 ${S}/libhi_common.so ${D}${libdir}/
 	install -m 0755 ${S}/libhi_msp.so ${D}${libdir}/
 	install -m 0755 ${S}/libjpeg9b.so ${D}${libdir}/
+
+	install -d ${D}${libdir}/pkgconfig
+	cp -r ${WORKDIR}/pkgconfig/*.pc ${D}${libdir}/pkgconfig/
 
 	cd ${D}${libdir}
 
@@ -55,9 +61,12 @@ do_install() {
 	ln -sf libchipid.so.0.0.0 libchipid.so 
 }
 
+INHIBIT_PACKAGE_STRIP = "1"
+INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
+
 do_package_qa() {
 }
 
 FILES_${PN} += "${libdir}/*"
 
-INSANE_SKIP_${PN} = "already-stripped dev-so"
+INSANE_SKIP_${PN} = "already-stripped dev-so ldflags dev-deps"

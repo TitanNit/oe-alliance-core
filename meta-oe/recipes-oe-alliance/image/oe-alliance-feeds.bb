@@ -9,7 +9,7 @@ ALLOW_EMPTY_${PN} = "1"
 PACKAGES = "${PN}"
 
 PV = "${IMAGE_VERSION}"
-PR = "r31"
+PR = "r33"
 
 DEPENDS = "enigma2-plugin-drivers-usbserial enigma2-plugin-systemplugins-hrtunerproxy"
 RECOMMENDS = "enigma2-plugin-extensions-et-livestream"
@@ -30,11 +30,11 @@ RDEPENDS_${PN} = " \
     enigma2-plugin-extensions-tuxcom \
     enigma2-plugin-security-firewall \
     enigma2-plugin-extensions-enigmalight \
-    ${@bb.utils.contains("DISTRO_FEATURES", "directfb", "enigma2-plugin-extensions-openairplay", "", d)} \
     enigma2-plugin-extensions-mediatomb \
     enigma2-plugin-extensions-dreamplex \
     enigma2-plugin-extensions-et-portal \
     enigma2-plugin-extensions-moviearchiver \
+    enigma2-plugin-extensions-moviemanager \
     enigma2-plugin-extensions-yahooweather \
     enigma2-plugin-extensions-youtube \
     enigma2-plugin-extensions-autobouquets \
@@ -52,8 +52,9 @@ RDEPENDS_${PN} = " \
     ${@bb.utils.contains("MACHINE_FEATURES", "webkithbbtv", "enigma2-plugin-extensions-webkithbbtv", "", d)} \
     ${@bb.utils.contains("MACHINE_FEATURES", "qthbbtv", "enigma2-plugin-extensions-hbbtv-qt", "", d)} \
     ${@bb.utils.contains("MACHINE_FEATURES", "qtstalker", "enigma2-plugin-extensions-stalker-qt", "", d)} \
-    ${@bb.utils.contains("MACHINE_FEATURES", "nextv-hbbtv-browser", " enigma2-plugin-extensions-hbbtv-nextv", "", d)} \
+    ${@bb.utils.contains("MACHINE_FEATURES", "hbbtv-browser-webkit", " enigma2-plugin-extensions-hbbtv-webkit", "", d)} \
     ${@bb.utils.contains("MACHINE_FEATURES", "chromiumos", "enigma2-plugin-extensions-chromium", "", d)} \
+    ${@bb.utils.contains("MACHINE_FEATURES", "vuglesdemo", "enigma2-plugin-extensions-libvupldemo", "", d)} \
     ${@bb.utils.contains("MACHINE_FEATURES", "dvd", "bdremux replex mjpegtools dvdauthor dvd+rw-tools cdrkit cdfs cdtextinfo enigma2-plugin-extensions-cdinfo enigma2-plugin-extensions-dvdburn enigma2-plugin-extensions-dvdplayer ${GST_BASE_DVD}", "", d)} \
     autofs \
     autossh \
@@ -79,8 +80,8 @@ RDEPENDS_${PN} = " \
     iperf3 \
     joe \
     lighttpd \
-    livestreamer \
     livestreamersrv \
+    streamlink \
     llmnr-query \
     mc \
     mergerfs \
@@ -125,6 +126,7 @@ RDEPENDS_${PN} = " \
     python-ujson \
     python-singledispatch \
     python-levenshtein \
+    python-soco \
     python-pyexecjs \
     ${@bb.utils.contains("DEFAULTTUNE", "sh4", "" , "rclone", d)} \
     rsync \
@@ -153,10 +155,6 @@ GST_BASE_DVD = "${@bb.utils.contains('GST_VERSION', '1.0', ' \
     gst-plugins-bad-videoparsersbad \
     gst-plugins-bad-mpegtsmux \
     ', d)}"
-
-RDEPENDS_${PN}_remove_wetekplay = "network-usb-drivers-meta"
-RDEPENDS_${PN}_remove_wetekplay2 = "network-usb-drivers-meta"
-RDEPENDS_${PN}_remove_odroidc2 = "network-usb-drivers-meta"
 
 RRECOMMENDS_${PN}_append_vuuno = "enigma2-plugin-extensions-hbbtv"
 RRECOMMENDS_${PN}_append_vuultimo = "enigma2-plugin-extensions-hbbtv"

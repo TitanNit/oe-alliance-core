@@ -1,6 +1,6 @@
 #!/bin/sh
 
-#LOG='/etc/mdev/mdev-mount.log'
+#LOG='/etc/udev/mdev-mount.log'
 
 # (e)udev compatibility
 [[ -z $MDEV ]] && MDEV=$(basename $DEVNAME)
@@ -48,9 +48,10 @@ case $ACTION in
 			exit 0
 		fi
 		DEVCHECK=`expr substr $MDEV 1 7`
+		DEVCHECK2=`expr substr $MDEV 1 3`
 		# blacklisted devices
 		for black in $BLACKLISTED; do
-			if [ "$DEVCHECK" == "$black" ] ; then
+			if [ "$DEVCHECK" == "$black" ] || [ "$DEVCHECK2" == "$black" ] ; then
 				exit 0
 			fi
 		done

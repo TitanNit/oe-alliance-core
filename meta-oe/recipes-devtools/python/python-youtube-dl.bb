@@ -7,8 +7,10 @@ SECTION = "devel/python"
 LICENSE = "LGPLv2.1"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=7246f848faa4e9c9fc0ea91122d6e680"
 DEPENDS = "libxml2 python-html bash-completion"
-SRCREV = "f34b841b51be6872914ffe17b210c54b0d823c3c"
-PV = "2017.11.06"
+SRCREV = "40a051fa9f48000f311f243c40e3cae588420738"
+PV = "2018.07.10"
+
+PR = "r1"
 
 SRC_URI = "git://github.com/rg3/youtube-dl.git;branch=master"
 
@@ -44,7 +46,7 @@ FILES_${PN}-src = " \
     ${libdir}/${PYTHON_DIR}/site-packages/*/*/*.py \
     ${libdir}/${PYTHON_DIR}/site-packages/*/*/*/*.py \
     ${libdir}/${PYTHON_DIR}/site-packages/*/*/*/*/*.py \
-    ${libdir}/${PYTHON_DIR}/site-packages/youtube_dl-*-py2.7.egg-info/* \
     ${datadir}/etc/* \
-    ${sysconfdir} \
     "
+
+FILES_${PN} += "${sysconfdir}"

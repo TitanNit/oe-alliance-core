@@ -1,8 +1,10 @@
 require vuplus-libgles.inc
 
-SRCDATE = "20171222"
-SRCDATE_PR = "r0"
-PV="16.1"
+COMPATIBLE_MACHINE = "^(vuultimo4k)$"
 
-SRC_URI[md5sum] = "1a84a058202eae4d29cea45bb2ae6851"
-SRC_URI[sha256sum] = "5e0de10c906b94a4f24a243f965f20ea463c17ea5e8ee643dc16235b6dbeff98"
+SRCDATE = "20180730"
+SRCDATE_PR = "r0"
+PV="17.1"
+
+SRC_URI[md5sum] = "c4ff549c9f65156eeba2e4c4a6ce62f1"
+SRC_URI[sha256sum] = "38d7e724700d0b1b77eed902ca9af8914a03353955da7654e70665a6f7b0dfa7"

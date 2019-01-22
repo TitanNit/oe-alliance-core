@@ -3,30 +3,32 @@ MAINTAINER = "stein17"
 
 require conf/license/license-gplv2.inc
 
-inherit gitpkgv allarch
+inherit gitpkgv 
 
 SRCREV = "${AUTOREV}"
-PV = "1.0+git${SRCPV}"
-PKGV = "1.0+git${GITPKGV}"
-VER="1.0"
+PV = "1.5+git${SRCPV}"
+PKGV = "1.5+git${GITPKGV}"
+VER="1.5"
 
-RDEPENDS_${PN} = "enigma2-plugin-systemplugins-weathercomponenthandler"
+RDEPENDS_${PN} = "enigma2-plugin-systemplugins-weathercomponenthandler, enigma2-plugin-skincomponents-weathercomponent"
 
-SRC_URI="git://github.com/stein17/Blue-Line-OE-4ATV.git;protocol=git"
+SRC_URI="git://github.com/stein17/Skins-for-openATV.git;protocol=git"
 
 FILES_${PN} = "/"
 
 
 
-S = "${WORKDIR}/git"
+S = "${WORKDIR}/git/Blue-Line-OE-4ATV"
 
 do_compile_append() {
 python -O -m compileall ${S}
 }
 
 do_install() {
-    install -d ${D}/usr/share/enigma2
-    cp -rp ${S}/usr ${D}/
+    install -d ${D}${libdir}
+    install -d ${D}/usr/share
+    cp -rp ${S}/usr/lib/* ${D}${libdir}/
+    cp -rp ${S}/usr/share/* ${D}/usr/share/
     chmod -R a+rX ${D}/usr/share/enigma2/
     cp -rp ${S}/tmp ${D}/
 }
@@ -63,7 +65,7 @@ exit 0
 
 pkg_preinst_${PN} () {
 #!/bin/sh
-python /usr/lib/enigma2/python/BoxBrandingTest.pyo | sed 's/<$//' | sed 's/ /_/g' > /tmp/boxbranding.cfg
+python ${libdir}/enigma2/python/BoxBrandingTest.pyo | sed 's/<$//' | sed 's/ /_/g' > /tmp/boxbranding.cfg
 echo "        Skin Blue-Line-OE-4ATV will be now installed...            "
 exit 0
 }

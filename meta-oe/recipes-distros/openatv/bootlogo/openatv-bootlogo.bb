@@ -2,7 +2,7 @@ SUMMARY = "openATV bootlogo"
 SECTION = "base"
 PRIORITY = "required"
 MAINTAINER = "openATV Team"
-PACKAGE_ARCH = "${MACHINE_ARCH}"
+PACKAGE_ARCH = "${MACHINEBUILD}"
 
 require conf/license/license-gplv2.inc
 
@@ -43,6 +43,10 @@ SRC_URI_append_7210s = "file://lcdsplash220.bin file://7100s/lcdwaitkey220.bin f
 SRC_URI_append_7105s = "file://lcdsplash220.bin file://7100s/lcdwaitkey220.bin file://7100s/lcdwarning220.bin file://7100s/lcdcomplete220.bin"
 SRC_URI_append_7215s = "file://lcdsplash220.bin file://7100s/lcdwaitkey220.bin file://7100s/lcdwarning220.bin file://7100s/lcdcomplete220.bin"
 SRC_URI_append_8100s = "file://7100s/lcdwarning220.bin"
+SRC_URI_append_h9 = "file://logo.img"
+SRC_URI_append_hd60 = "file://logo.img"
+SRC_URI_append_cc1 = "file://logo.img"
+SRC_URI_append_sf8008 = "file://logo.img"
 
 BINARY_VERSION = "1.3"
 
@@ -152,6 +156,9 @@ do_deploy() {
     fi
     if [ -e splash3.bmp ]; then
         install -m 0644 splash3.bmp ${DEPLOYDIR}/splash3.bmp
+    fi
+    if [ -e logo.img ]; then
+        install -m 0644 logo.img ${DEPLOYDIR}/logo-${DISTRO_NAME}.img
     fi
 }
 

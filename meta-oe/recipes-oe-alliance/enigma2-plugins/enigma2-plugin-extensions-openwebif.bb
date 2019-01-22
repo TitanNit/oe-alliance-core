@@ -6,9 +6,7 @@ PACKAGE_ARCH = "all"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
-BRANCH="responsive"
-BRANCH_openeight="master"
-BRANCH_opennfr="master"
+BRANCH="master"
 
 DEPENDS = "python-cheetah-native"
 RDEPENDS_${PN} = "\
@@ -27,11 +25,11 @@ RDEPENDS_${PN} = "\
 
 inherit gitpkgv distutils-openplugins gettext
 
-DISTUTILS_INSTALL_ARGS = "--root=${D} --install-lib=/usr/lib/enigma2/python/Plugins"
+DISTUTILS_INSTALL_ARGS = "--root=${D} --install-lib=${libdir}/enigma2/python/Plugins"
 
 SRCREV = "${AUTOREV}"
-PV = "1.2+git${SRCPV}"
-PKGV = "1.2+git${GITPKGV}"
+PV = "1.3.0+git${SRCPV}"
+PKGV = "1.3.0+git${GITPKGV}"
 
 SRC_URI = "git://github.com/E2OpenPlugins/e2openplugin-${MODULE}.git;protocol=git;branch=${BRANCH} \
            file://transcoding.py"
@@ -49,7 +47,7 @@ do_compile() {
 	python -O -m compileall ${S}
 }
 
-PLUGINPATH = "/usr/lib/enigma2/python/Plugins/Extensions/${MODULE}"
+PLUGINPATH = "${libdir}/enigma2/python/Plugins/Extensions/${MODULE}"
 do_install_append() {
 	install -d ${D}${PLUGINPATH}
 	cp -r ${S}/plugin/* ${D}${PLUGINPATH}

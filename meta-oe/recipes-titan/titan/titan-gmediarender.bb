@@ -130,7 +130,7 @@ GST_UGLY_RDEPS = "${@bb.utils.contains('GST_VERSION', '1.0', ' \
 
 inherit gitpkgv
 
-SRCREV = "${AUTOREV}"
+SRCREV = "704b182cf530b11922484b428c3badd4ae71550c"
 PV = "2.0+gitr${SRCPV}"
 PR = "r1"
 PR = "r2"

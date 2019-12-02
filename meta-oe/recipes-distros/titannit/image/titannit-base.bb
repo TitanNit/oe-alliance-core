@@ -117,6 +117,7 @@ RDEPENDS_${PN} = "\
 	titan-tuxtxt \
  	"
 
+
 #	${@bb.utils.contains("MACHINE_FEATURES", "dreamboxv1", "", "oe-alliance-wifi", d)}
 #
 #	titan-gmediarender

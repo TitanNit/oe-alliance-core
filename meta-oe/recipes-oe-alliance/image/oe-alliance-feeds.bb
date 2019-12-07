@@ -62,7 +62,6 @@ RDEPENDS_${PN} = " \
     autofs \
     autossh \
     ${@bb.utils.contains("DISTRO_FEATURES", "directfb", "avahi-ui", "", d)} \
-    astra-sm \
     binutils \
     ctorrent \
     cups \

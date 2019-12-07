@@ -104,6 +104,7 @@ RDEPENDS_${PN} = "\
 	${@bb.utils.contains("MACHINE_FEATURES", "libpassthrough", "libpassthrough libdlsym", "", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "no-nmap", "" , "nmap", d)} \
 	${@bb.utils.contains("MACHINE_FEATURES", "singlecore", "", \
+	${@bb.utils.contains("MACHINE_FEATURES", "dreamboxv1", "", "oe-alliance-wifi", d)} \
 	" \
 	", d)} \
 	${@bb.utils.contains("TARGET_ARCH", "sh4", "alsa-utils-amixer-conf" , "", d)} \

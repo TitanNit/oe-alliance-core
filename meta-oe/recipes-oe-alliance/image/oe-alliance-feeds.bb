@@ -74,7 +74,7 @@ RDEPENDS_${PN} = " \
     dvblast \
     dvbsnoop \
     dvdfs \
-    edid-decode \
+    ${@bb.utils.contains('MACHINE', 'cube', '' , 'edid-decode', d)} \
     exfat-utils \
     fuse-exfat \
     gptfdisk \
@@ -97,6 +97,7 @@ RDEPENDS_${PN} = " \
     mtd-utils \
     nano \
     net-snmp \
+    nss \
     ntfs-3g \
     ntp \
     ${@bb.utils.contains("DEFAULTTUNE", "sh4", "" , "nodejs dvb-apps ", d)} \

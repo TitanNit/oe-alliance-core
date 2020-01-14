@@ -13,21 +13,30 @@ inherit pkgconfig
 
 SRCREV = "${AUTOREV}"
 PKGV = "2.0+git${GITPKGV}"
-PV = "2.0+svnr${SRCPV}"
+PV = "2.0+gitr${SRCPV}"
 PR = "r3"
 
-SRC_URI = "svn://sbnc.dyndns.tv/svn/titan;module=libeplayer3;protocol=http"
-#    file://fix_uint_include.patch;patch=1
+#SRC_URI = "svn://sbnc.dyndns.tv/svn/titan;module=libeplayer3;protocol=http"
+SRC_URI="git://github.com/titannit/exteplayer3.git;protocol=https"
 
-DEPENDS = "ffmpeg libass"
-RDEPENDS_${PN} = "ffmpeg"
+DEPENDS = "ffmpeg libbluray"
+RDEPENDS_${PN} = "ffmpeg libbluray"
+
+inherit gitpkgv upx-compress
+
 
 SSTATE_DUPWHITELIST += "${STAGING_DIR_TARGET}/usr/lib/libeplayer3.so.0.0.0"
 
-S = "${WORKDIR}/libeplayer3"
+S = "${WORKDIR}/git"
+
+CFLAGS_append = " \
+	-I${S}/include \
+	-I${S}/external \
+        -I${S}/external/flv2mpeg4 \
+	"
 
 do_compile() {
-	cd ${WORKDIR}/libeplayer3
+	cd ${WORKDIR}/git
 
 	if [ ${HOST_SYS} = "sh4-oe-linux" ];then
 		cp Makefile.am.sh4 Makefile.am
@@ -36,7 +45,6 @@ do_compile() {
 	else
 		cp Makefile.am.mipsel Makefile.am
 	fi
-#    ${CC} ${SOURCE_FILES} -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_LARGEFILE_SOURCE -I${S}/include -I${D}/${libdir} -I${D}/${includedir} -lpthread -lavformat -lavcodec -lavutil -lswresample -o exteplayer3
 
 	libtoolize --force
 	aclocal -I ${STAGING_DIR_TARGET}/usr/share/aclocal
@@ -48,8 +56,7 @@ do_compile() {
     	${STRIP} .libs/eplayer3
     	${STRIP} .libs/libeplayer3.so.0.0.0
 
-	cp -a ${WORKDIR}/libeplayer3/.libs/* ${STAGING_DIR_TARGET}/usr/lib/
-#	cp -a ${WORKDIR}/libeplayer3/include ${STAGING_DIR_TARGET}/usr/include/eplayer3
+	cp -a .libs/* ${STAGING_DIR_TARGET}/usr/lib/
 }
 
 FILES_${PN} = "/usr/bin"

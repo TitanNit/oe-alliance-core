@@ -19,6 +19,7 @@ RDEPENDS_${PN} = "\
 	bash \
 	curl \
 	curlftpfs \
+	djmount \
 	dropbear \
 	dvbsnoop \
 	e2fsprogs-e2fsck \

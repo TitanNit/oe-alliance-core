@@ -226,7 +226,7 @@ do_compile() {
     ${STRIP} titan
 }
 
-FILES_${PN} = "oealliance/* /usr/local/bin"
+FILES_${PN} = "oealliance/* /usr/local/bin /var/etc/autostart"
 
 do_install() {
     install -d ${D}/usr/local/bin

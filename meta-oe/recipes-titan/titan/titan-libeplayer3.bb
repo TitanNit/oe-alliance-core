@@ -27,7 +27,7 @@ inherit gitpkgv upx-compress
 
 SSTATE_DUPWHITELIST += "${STAGING_DIR_TARGET}/usr/lib/libeplayer3.so.0.0.0"
 
-S = "${WORKDIR}/git"
+S = "${WORKDIR}/libeplayer3"
 
 CFLAGS_append = " \
 	-I${S}/include \
@@ -36,7 +36,7 @@ CFLAGS_append = " \
 	"
 
 do_compile() {
-	cd ${WORKDIR}/git
+	cd ${WORKDIR}/libeplayer3
 
 	if [ ${HOST_SYS} = "sh4-oe-linux" ];then
 		cp Makefile.am.sh4 Makefile.am

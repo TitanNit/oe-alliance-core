@@ -19,8 +19,8 @@ PR = "r3"
 SRC_URI = "svn://sbnc.dyndns.tv/svn/titan;module=libeplayer3;protocol=http"
 #SRC_URI="git://github.com/titannit/exteplayer3.git;protocol=https"
 
-DEPENDS = "ffmpeg libbluray"
-RDEPENDS_${PN} = "ffmpeg libbluray"
+DEPENDS = "ffmpeg libbluray libass"
+RDEPENDS_${PN} = "ffmpeg libbluray libass"
 
 inherit gitpkgv upx-compress
 

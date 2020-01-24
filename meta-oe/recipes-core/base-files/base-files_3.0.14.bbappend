@@ -10,7 +10,6 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/${MACHINEBUILD}:"
 SRC_URI += "file://editor.sh"
 SRC_URI += "file://terminfo.sh"
 SRC_URI += "file://mount-helper.sh"
-SRC_URI += "file://mount-helper_titannit.sh"
 
 hostname = "${MACHINEBUILD}"
 
@@ -24,12 +23,7 @@ do_install_append() {
     rm -fr ${D}/tmp
     mkdir ${D}/media/net
     install -d ${D}${sysconfdir}/udev
-	if [ "x${DISTRO}" = "xtitannit" ]; then
-	    install -m 0755 ${WORKDIR}/mount-helper_titannit.sh       ${D}${sysconfdir}/udev/mount-helper.sh
-#		ln -s /sbin/hotplug.sh	${D}${sysconfdir}/udev/mount-helper.sh
-	else
-	    install -m 0755 ${WORKDIR}/mount-helper.sh       ${D}${sysconfdir}/udev
-	fi
+    install -m 0755 ${WORKDIR}/mount-helper.sh       ${D}${sysconfdir}/udev
     install -d ${D}${sysconfdir}/profile.d
     install -m 0644 ${WORKDIR}/editor.sh   ${D}${sysconfdir}/profile.d/editor.sh
     install -m 0644 ${WORKDIR}/terminfo.sh ${D}${sysconfdir}/profile.d/terminfo.sh

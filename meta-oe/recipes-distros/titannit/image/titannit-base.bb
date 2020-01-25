@@ -55,7 +55,6 @@ RDEPENDS_${PN} = "\
 	libdreamdvd \
 	libdvdcss \
 	libusb1 \
-	mc \
 	minilocale \
 	minidlna \
 	module-init-tools-depmod \
@@ -67,7 +66,6 @@ RDEPENDS_${PN} = "\
 	ntpdate \
 	ofgwrite \
 	openssl \
-	openvpn \
 	opkg \
 	packagegroup-base \
 	packagegroup-core-boot \
@@ -79,7 +77,6 @@ RDEPENDS_${PN} = "\
 	pngquant \
 	procps \
 	rtmpdump \
-	samba \
 	sdparm \
 	smbclient \
 	smbnetfs \
@@ -117,6 +114,10 @@ RDEPENDS_${PN} = "\
 	titan-fbread \
 	titan-tuxtxt \
  	"
+
+	openvpn
+	mc
+	samba
 
 #	${@bb.utils.contains("MACHINE_FEATURES", "dreamboxv1", "", "oe-alliance-wifi", d)}
 #

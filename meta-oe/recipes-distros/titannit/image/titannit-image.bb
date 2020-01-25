@@ -48,7 +48,7 @@ IMAGE_INSTALL = "\
 	titan-plugin-weather \
     "
 
-IMAGE_INSTALL_append_mipsel = "\
+IMAGE_INSTALL_append_mipsel_aus = "\
 	firmware-rtl8192cu \
 	firmware-rt2870 \
 	firmware-rt3070 \
@@ -66,7 +66,7 @@ IMAGE_INSTALL_append_mipsel = "\
 	rt8723a \
     "
 
-IMAGE_INSTALL_append_arm = "\
+IMAGE_INSTALL_append_arm_aus = "\
 	firmware-rtl8192cu \
 	firmware-rt2870 \
 	firmware-rt3070 \
@@ -83,7 +83,7 @@ IMAGE_INSTALL_append_arm = "\
 	rt8723a \
     "
 
-IMAGE_INSTALL_append_sh4 = "\
+IMAGE_INSTALL_append_sh4_aus = "\
 	firmware-rtl8192cu \
 	firmware-rt2870 \
 	firmware-rt3070 \

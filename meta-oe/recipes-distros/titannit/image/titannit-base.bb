@@ -55,6 +55,8 @@ RDEPENDS_${PN} = "\
 	libdreamdvd \
 	libdvdcss \
 	libusb1 \
+	mc \
+	minidlna \
 	minilocale \
 	module-init-tools-depmod \
 	modutils-loadscript \
@@ -65,6 +67,7 @@ RDEPENDS_${PN} = "\
 	ntpdate \
 	ofgwrite \
 	openssl \
+	openvpn \
 	opkg \
 	packagegroup-base \
 	packagegroup-core-boot \
@@ -76,6 +79,7 @@ RDEPENDS_${PN} = "\
 	pngquant \
 	procps \
 	rtmpdump \
+	samba \
 	sdparm \
 	smbclient \
 	smbnetfs \
@@ -114,11 +118,6 @@ RDEPENDS_${PN} = "\
 	${@bb.utils.contains("MACHINE_FEATURES", "dreamboxv1", "", "oe-alliance-wifi", d)} \
  	"
 
-#	mc
-#	minidlna
-#	samba
-#	openvpn
-#	${@bb.utils.contains("MACHINE_FEATURES", "dreamboxv1", "", "oe-alliance-wifi", d)}
 #	${@bb.utils.contains("MACHINE", "sf8008", "kernel-module-mt7601u firmware-mt7601u", "", d)}
 
 #

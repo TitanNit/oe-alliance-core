@@ -56,7 +56,6 @@ RDEPENDS_${PN} = "\
 	libdvdcss \
 	libusb1 \
 	minilocale \
-	minidlna \
 	module-init-tools-depmod \
 	modutils-loadscript \
 	mtd-utils \
@@ -104,7 +103,6 @@ RDEPENDS_${PN} = "\
 	" \
 	", d)} \
 	${@bb.utils.contains("TARGET_ARCH", "sh4", "alsa-utils-amixer-conf" , "", d)} \
-	${@bb.utils.contains("MACHINE_FEATURES", "dreamboxv1", "", "oe-alliance-wifi", d)} \
 	oe-alliance-feeds-configs \
 	openatv-version-info \
 	\
@@ -113,13 +111,15 @@ RDEPENDS_${PN} = "\
 	titan-rarfs \
 	titan-fbread \
 	titan-tuxtxt \
+	${@bb.utils.contains("MACHINE", "sf8008", "kernel-module-mt7601u firmware-mt7601u", "", d)} \
  	"
 
-#	openvpn
 #	mc
+#	minidlna
 #	samba
-
+#	openvpn
 #	${@bb.utils.contains("MACHINE_FEATURES", "dreamboxv1", "", "oe-alliance-wifi", d)}
+
 #
 #	titan-gmediarender
 #	titannit-version-info

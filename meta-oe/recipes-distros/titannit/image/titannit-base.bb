@@ -111,7 +111,7 @@ RDEPENDS_${PN} = "\
 	titan-rarfs \
 	titan-fbread \
 	titan-tuxtxt \
-	${@bb.utils.contains("MACHINE", "sf8008", "kernel-module-mt7601u firmware-mt7601u", "", d)} \
+	${@bb.utils.contains("MACHINE_FEATURES", "dreamboxv1", "", "oe-alliance-wifi", d)}
  	"
 
 #	mc
@@ -119,6 +119,7 @@ RDEPENDS_${PN} = "\
 #	samba
 #	openvpn
 #	${@bb.utils.contains("MACHINE_FEATURES", "dreamboxv1", "", "oe-alliance-wifi", d)}
+#	${@bb.utils.contains("MACHINE", "sf8008", "kernel-module-mt7601u firmware-mt7601u", "", d)}
 
 #
 #	titan-gmediarender

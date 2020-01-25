@@ -115,9 +115,9 @@ RDEPENDS_${PN} = "\
 	titan-tuxtxt \
  	"
 
-	openvpn
-	mc
-	samba
+#	openvpn
+#	mc
+#	samba
 
 #	${@bb.utils.contains("MACHINE_FEATURES", "dreamboxv1", "", "oe-alliance-wifi", d)}
 #

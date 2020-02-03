@@ -29,6 +29,7 @@ CFLAGS_append_mipsel = " -DMIPSEL"
 CFLAGS_append_arm = " -DMIPSEL"
 
 CFLAGS_append_arm_sf8008 = " -DEVENT0 -DDOUBLE"
+CFLAGS_append_mipsel_vusolo2 = " -DEVENT0 -DDOUBLE"
 
 do_compile() {
 	cd ${WORKDIR}/infobox

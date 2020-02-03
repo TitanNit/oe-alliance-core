@@ -43,6 +43,7 @@ RDEPENDS_${PN} = "\
 	early-configure \
 	ethtool \
 	exteplayer3 \
+	evtest \
 	fuse-exfat \
 	glibc-gconv-iso8859-15 \
 	glib-networking \

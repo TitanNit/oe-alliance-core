@@ -57,7 +57,6 @@ RDEPENDS_${PN} = "\
 	libdvdcss \
 	libusb1 \
 	mc \
-	minidlna \
 	minilocale \
 	module-init-tools-depmod \
 	modutils-loadscript \

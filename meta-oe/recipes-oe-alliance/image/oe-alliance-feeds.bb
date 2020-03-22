@@ -43,6 +43,7 @@ RDEPENDS_${PN} = " \
     enigma2-plugin-extensions-e2m3u2bouquet \
     enigma2-plugin-extensions-xmodem \
     enigma2-plugin-systemplugins-hrtunerproxy \
+    enigma2-plugin-systemplugins-joynescan \
     enigma2-plugin-systemplugins-radiotimesemulator \
     oe-alliance-branding-remote \
     exteplayer3 \
@@ -50,7 +51,7 @@ RDEPENDS_${PN} = " \
     ${@bb.utils.contains("GST_VERSION", "1.0", "eplayer5", "eplayer4", d)} \
     ${@bb.utils.contains("MACHINE_FEATURES", "legacykernel", "" , "gdb v4l-utils evtest strace", d)} \
     ${@bb.utils.contains("MACHINE_FEATURES", "omb", "enigma2-plugin-extensions-openmultiboot openmultiboot", "", d)} \
-    ${@bb.utils.contains("MACHINE_FEATURES", "kodi", "kodi-addons-meta enigma2-plugin-extensions-kodi", "", d)} \
+    ${@bb.utils.contains_any("MACHINE_FEATURES", "kodi kodi18", "kodi-addons-meta enigma2-plugin-extensions-kodi", "", d)} \
     ${@bb.utils.contains("MACHINE_FEATURES", "webkithbbtv", "enigma2-plugin-extensions-webkithbbtv", "", d)} \
     ${@bb.utils.contains("MACHINE_FEATURES", "qthbbtv", "enigma2-plugin-extensions-hbbtv-qt", "", d)} \
     ${@bb.utils.contains("MACHINE_FEATURES", "qtstalker", "enigma2-plugin-extensions-stalker-qt", "", d)} \
@@ -97,6 +98,7 @@ RDEPENDS_${PN} = " \
     mtd-utils \
     nano \
     net-snmp \
+    nlohmann-json \
     nss \
     ntfs-3g \
     ntp \
@@ -138,6 +140,7 @@ RDEPENDS_${PN} = " \
     python-soco \
     python-pyexecjs \
     ${@bb.utils.contains("DEFAULTTUNE", "sh4", "" , "rclone zerotier", d)} \
+    rapidxml \
     rsync \
     rtorrent \
     sabnzbd \

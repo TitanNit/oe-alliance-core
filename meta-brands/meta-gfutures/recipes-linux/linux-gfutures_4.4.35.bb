@@ -10,7 +10,7 @@ SRCDATE = "20200219"
 
 inherit kernel machine_kernel_pr
 
-MACHINE_KERNEL_PR_append = ".16"
+MACHINE_KERNEL_PR_append = "17"
 
 SRC_URI[md5sum] = "f9e67e2d0ceab518510413f8f4315bc3"
 SRC_URI[sha256sum] = "45ae717b966a74326fd7297d81b3a17fd5b3962b7704170682a615ca7cdec644"
@@ -26,6 +26,10 @@ SRC_URI = "http://source.mynonpublic.com/gfutures/linux-${PV}-${SRCDATE}-${ARCH}
 	file://dvb-usb-linux_4.4.179.patch \
 	file://wifi-linux_4.4.183.patch \
 	file://findkerneldevice.sh \
+	file://0004-linux-fix-buffer-size-warning-error.patch \
+	file://modules_mark__inittest__exittest_as__maybe_unused.patch \
+	file://includelinuxmodule_h_copy__init__exit_attrs_to_initcleanup_module.patch \
+	file://Backport_minimal_compiler_attributes_h_to_support_GCC_9.patch \
 	"
 
 # By default, kernel.bbclass modifies package names to allow multiple kernels
@@ -45,7 +49,7 @@ KERNEL_IMAGEDEST = "tmp"
 KERNEL_IMAGETYPE = "uImage"
 KERNEL_OUTPUT = "arch/${ARCH}/boot/${KERNEL_IMAGETYPE}"
 
-KERNEL_EXTRA_ARGS = "EXTRA_CFLAGS=-Wno-attribute-alias"
+#KERNEL_EXTRA_ARGS = "EXTRA_CFLAGS=-Wno-attribute-alias"
 
 FILES_${KERNEL_PACKAGE_NAME}-image_hd41 = " "
 FILES_${KERNEL_PACKAGE_NAME}-image = "/${KERNEL_IMAGEDEST}/findkerneldevice.sh"

@@ -11,7 +11,7 @@ DEPENDS = "tslib mpfr gmp"
 SRCREV = "${AUTOREV}"
 PV = "${IMAGE_VERSION}+gitr${SRCPV}"
 PKGV = "${IMAGE_VERSION}+gitr${GITPKGV}"
-PR = "r263"
+PR = "r265"
 
 SRC_URI="git://github.com/oe-alliance/3rdparty-plugins.git;protocol=git"
 
@@ -73,7 +73,7 @@ THIRDPARTY_PLUGINS = " \
     enigma2-plugin-extensions-screensaver_5.7.1_all.ipk \
     enigma2-plugin-extensions-serienrecorder_3.9.0_all.ipk \
     enigma2-plugin-extensions-sherlock_5.01r1_mipsel.ipk \
-    enigma2-plugin-extensions-skyrecorder_1.7.2_all.ipk \
+    enigma2-plugin-extensions-skyrecorder_1.9.7_all.ipk \
     enigma2-plugin-extensions-songs-to_0.1_mips32el.ipk \
     enigma2-plugin-extensions-spinnerselector_2.3_all.ipk \
     enigma2-plugin-extensions-sport1ticker_1.3_all.ipk \
@@ -99,7 +99,7 @@ THIRDPARTY_PLUGINS = " \
     enigma2-plugin-extensions-xbmcwetter_1.4rc1_all.ipk \
     enigma2-plugin-extensions-xcplugin-iptv-mod-lululla_6.7_all \
     enigma2-plugin-picons-snp-full.220x132-190x102.light.on.transparent_2020-04-11--01-03-50_all.ipk \
-    enigma2-plugin-skins-OverlayHD_1.80_all.ipk \
+    enigma2-plugin-skins-OverlayHD_1.82_all.ipk \
     enigma2-plugin-systemplugins-bouquetsprotection_0.2-rc1_all.ipk \
     enigma2-plugin-systemplugins-channelselectionnavigator_1.5_mipsel.ipk \
     enigma2-plugin-systemplugins-extnumberzap_1.21_all.ipk \

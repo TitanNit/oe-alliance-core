@@ -1,7 +1,7 @@
 SUMMARY = "DAB decoding library with example of its use"
 SECTION = "libs/multimedia"
 LICENSE = "GPLv2"
-LIC_FILES_CHKSUM = "file://../license;md5=427d5433a7bd7fc1e38dc15e93cbc645"
+require conf/license/license-gplv2.inc
 
 SRCREV = "${AUTOREV}"
 
@@ -10,8 +10,8 @@ RDEPENDS_${PN} = "rtl-sdr"
 
 inherit gitpkgv
 
-PV = "1.2+git${SRCPV}"
-PKGV = "1.2+git${GITPKGV}"
+PV = "1.3+git${SRCPV}"
+PKGV = "1.3+git${GITPKGV}"
 PR = "r0"
 
 SRC_URI = "git://github.com/satdreamgr/dab-cmdline.git;branch=sdgradio"

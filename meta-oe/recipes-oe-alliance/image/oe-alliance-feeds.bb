@@ -40,7 +40,9 @@ RDEPENDS_${PN} = " \
     enigma2-plugin-extensions-e2iplayer \
     enigma2-plugin-extensions-e2iplayer-deps \
     enigma2-plugin-extensions-e2m3u2bouquet \
+    enigma2-plugin-extensions-jedimakerxtream \
     enigma2-plugin-extensions-xmodem \
+    enigma2-plugin-extensions-xstreamity \
     enigma2-plugin-systemplugins-hrtunerproxy \
     enigma2-plugin-systemplugins-joynescan \
     enigma2-plugin-systemplugins-radiotimesemulator \
@@ -123,6 +125,7 @@ RDEPENDS_${PN} = " \
     python-circuits-bricks \
     python-cfscrape \
     python-cocy \
+    python-future \
     python-futures \
     python-fuzzywuzzy \
     python-ipaddress \

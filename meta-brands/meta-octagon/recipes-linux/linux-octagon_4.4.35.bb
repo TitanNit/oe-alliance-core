@@ -7,7 +7,7 @@ SRCDATE = "20181224"
 
 inherit kernel machine_kernel_pr
 
-MACHINE_KERNEL_PR_append = "30"
+MACHINE_KERNEL_PR_append = "32"
 
 
 SRC_URI[md5sum] = "ad7eab17a5071a0d5f9ff44eb44e027d"
@@ -35,6 +35,11 @@ SRC_URI += "http://source.mynonpublic.com/octagon/octagon-linux-${PV}-${SRCDATE}
     file://0003-dont-mark-register-as-const.patch \
     file://wifi-linux_4.4.183.patch \
     file://fix-dvbcore.patch \
+    file://0005-xbox-one-tuner-4.4.patch \
+    file://0006-dvb-media-tda18250-support-for-new-silicon-tuner.patch \
+    file://0007-dvb-mn88472-staging.patch \
+    file://mn88472_reset_stream_ID_reg_if_no_PLP_given.patch \
+    file://extend_modules_space.patch \
 "
 
 SRC_URI_append_sf8008m += " \
@@ -50,7 +55,7 @@ KERNEL_IMAGEDEST = "tmp"
 
 KERNEL_EXTRA_ARGS = "EXTRA_CFLAGS=-Wno-attribute-alias"
 
-FILES_${KERNEL_PACKAGE_NAME}-image = "${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE} /${KERNEL_IMAGEDEST}/findkerneldevice.py"
+FILES_${KERNEL_PACKAGE_NAME}-image = "${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE} /${KERNEL_IMAGEDEST}/findkerneldevice.sh"
 
 KERNEL_IMAGETYPE = "uImage"
 KERNEL_OUTPUT = "arch/${ARCH}/boot/${KERNEL_IMAGETYPE}"

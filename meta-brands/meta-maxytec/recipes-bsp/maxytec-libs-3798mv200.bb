@@ -1,8 +1,8 @@
-SRCDATE = "20200422"
+SRCDATE = "20200622"
 
 require maxytec-libs.inc
 
-SRC_URI[md5sum] = "926dfdc66c3187327be4754d9837b53a"
-SRC_URI[sha256sum] = "63f9f16a4d96f0014bdc346394d0e575d5d4c0a1658fae79c039f25a9fd93457"
+SRC_URI[md5sum] = "ca16578cac278c9bfe84a5c652fd4d69"
+SRC_URI[sha256sum] = "7a50cb6cdab1d854a5c456c63d187e62d709b3344907d45fc9b50ba6408b6800"
 
-COMPATIBLE_MACHINE = "v8plus|multibox"
+COMPATIBLE_MACHINE = "v8plus|multibox|plus"

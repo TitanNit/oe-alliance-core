@@ -11,7 +11,7 @@ DEPENDS = "tslib mpfr gmp"
 SRCREV = "${AUTOREV}"
 PV = "${IMAGE_VERSION}+gitr${SRCPV}"
 PKGV = "${IMAGE_VERSION}+gitr${GITPKGV}"
-PR = "r265"
+PR = "r269"
 
 SRC_URI="git://github.com/oe-alliance/3rdparty-plugins.git;protocol=git"
 
@@ -49,7 +49,6 @@ THIRDPARTY_PLUGINS = " \
     ${@bb.utils.contains("TARGET_ARCH", "sh4", "enigma2-plugin-extensions-isettinge2-3.4.4-oe2.0-all-sh4.ipk" , "", d)} \
     ${@bb.utils.contains("TARGET_ARCH", "mipsel", "enigma2-plugin-extensions-isettinge2-3.4.4-oe2.0-all-mips.ipk" , "", d)} \
     ${@bb.utils.contains("TARGET_ARCH", "arm", "enigma2-plugin-extensions-isettinge2-3.4.4-oe2.0-all-arm.ipk" , "", d)} \
-    enigma2-plugin-extensions-jedimakerxtream_5.29.20200129_all.ipk \
     enigma2-plugin-extensions-livefootball_7.1_all.ipk \
     enigma2-plugin-extensions-mediainfo_3.0.7_all.ipk \
     enigma2-plugin-extensions-mediaportal_all.ipk \
@@ -71,7 +70,7 @@ THIRDPARTY_PLUGINS = " \
     enigma2-plugin-extensions-pzyemail_0.8-20150614_all.ipk \
     enigma2-plugin-extensions-screengrabber_2.5_all.ipk \
     enigma2-plugin-extensions-screensaver_5.7.1_all.ipk \
-    enigma2-plugin-extensions-serienrecorder_3.9.0_all.ipk \
+    enigma2-plugin-extensions-serienrecorder_4.1.5_all.ipk \
     enigma2-plugin-extensions-sherlock_5.01r1_mipsel.ipk \
     enigma2-plugin-extensions-skyrecorder_1.9.7_all.ipk \
     enigma2-plugin-extensions-songs-to_0.1_mips32el.ipk \
@@ -98,7 +97,7 @@ THIRDPARTY_PLUGINS = " \
     enigma2-plugin-extensions-wwech_1.03_all.ipk \
     enigma2-plugin-extensions-xbmcwetter_1.4rc1_all.ipk \
     enigma2-plugin-extensions-xcplugin-iptv-mod-lululla_6.7_all \
-    enigma2-plugin-picons-snp-full.220x132-190x102.light.on.transparent_2020-04-11--01-03-50_all.ipk \
+    enigma2-plugin-picons-snp-full.220x132-190x102.light.on.transparent_2020-04-29--20-31-15_all.ipk \
     enigma2-plugin-skins-OverlayHD_1.82_all.ipk \
     enigma2-plugin-systemplugins-bouquetsprotection_0.2-rc1_all.ipk \
     enigma2-plugin-systemplugins-channelselectionnavigator_1.5_mipsel.ipk \
@@ -111,7 +110,7 @@ THIRDPARTY_MACHINE_PLUGINS_vuuno = " \
     "
 THIRDPARTY_MACHINE_PLUGINS_vuultimo = " \
     enigma2-plugin-extensions-sdg-imagedownloader-v0.7-oe-2.0-vu-all.ipk \
-    "	
+    "
 THIRDPARTY_MACHINE_PLUGINS_vusolo = " \
     enigma2-plugin-extensions-sdg-imagedownloader-v0.7-oe-2.0-vu-all.ipk \
     "
@@ -129,7 +128,7 @@ THIRDPARTY_MACHINE_PLUGINS_vusolose = " \
     "
 THIRDPARTY_MACHINE_PLUGINS_vuzero = " \
     enigma2-plugin-extensions-sdg-imagedownloader-v0.7-oe-2.0-vu-all.ipk \
-    "	
+    "
 
 THIRDPARTY_MACHINE_PLUGINS_et8000 = " \
     enigma2-plugin-systemplugins-autorebootET8000_1.3_mipsel.ipk \
@@ -137,7 +136,7 @@ THIRDPARTY_MACHINE_PLUGINS_et8000 = " \
 
 do_install() {
     [[ -e ${WORKDIR}/enigma2-plugin-extensions-mediaportal_all.ipk ]] && rm ${WORKDIR}/enigma2-plugin-extensions-mediaportal_all.ipk
-    wget --unlink -q  https://sourceforge.mirrorservice.org/e/project/e2/e2-mediaportal/enigma2-plugin-extensions-mediaportal_all.ipk -P ${WORKDIR}/ \
+    wget --unlink -q  https://downloads.sourceforge.net/project/e2-mediaportal/enigma2-plugin-extensions-mediaportal_all.ipk -P ${WORKDIR}/ \
     && cp --preserve=timestamps ${WORKDIR}/enigma2-plugin-extensions-mediaportal_all.ipk ${S}/ \
     || true
 }

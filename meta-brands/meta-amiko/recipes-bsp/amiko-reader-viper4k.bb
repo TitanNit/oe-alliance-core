@@ -8,7 +8,7 @@ RDEPENDS_${PN} = "libsdl"
 
 COMPATIBLE_MACHINE = "^(viper4k)$"
 
-SRCDATE = "20190808"
+SRCDATE = "20200612"
 
 PV = "${SRCDATE}"
 PR = "r0"
@@ -27,8 +27,8 @@ do_package_qa() {
 
 FILES_${PN}  = "${bindir}/libreader"
 
-SRC_URI[md5sum] = "9eda88726f720e819e3e3b71dc8298af"
-SRC_URI[sha256sum] = "dbb600373c7aef3c661d1a85915bffa38c6cc68586d0bd4850d55614d534527f"
+SRC_URI[md5sum] = "a7844dd57594a6349fc47e8f2e4e9c36"
+SRC_URI[sha256sum] = "230349703f5a105c0b7bdcbab7e2f178328d77102462d9dd6df66a1e8fb91dc6"
 
 INSANE_SKIP_${PN} += "already-stripped"
 

@@ -4,23 +4,43 @@ include conf/machine/include/build-extras.inc
 BRAND_OEM = "maxytec"
 
 MACHINE_NAME = "\
-${@bb.utils.contains('MACHINEBUILD', 'anadolmulti', 'Multibox' , '', d)}\
-${@bb.utils.contains('MACHINEBUILD', 'maxytecmulti', 'Multibox' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'ultrav8plus', 'V8PLUS Combo' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'anadolmulti', 'Multibox Combo' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'maxytecmulti', 'Multibox Combo' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'axmulticombo', 'Multibox Combo' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'axmultitwin', 'Multibox TWIN' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'anadolmultitwin', 'Multibox TWIN' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'maxytecmultiplus', 'Multibox Plus' , '', d)}\
 "
 
 MACHINE_BRAND = "\
+${@bb.utils.contains('MACHINEBUILD', 'ultrav8plus', 'ULTRA BOX' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'anadolmulti', 'ANADOL' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'maxytecmulti', 'Maxytec' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'axmulticombo', 'AX' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'axmultitwin', 'AX' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'anadolmultitwin', 'ANADOL' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'maxytecmultiplus', 'Maxytec' , '', d)}\
 "
 
 IMAGEDIR = "\
+${@bb.utils.contains('MACHINEBUILD', 'ultrav8plus', 'v8plus' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'anadolmulti', 'multibox' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'maxytecmulti', 'multibox' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'axmulticombo', 'multibox' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'axmultitwin', 'multibox' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'anadolmultitwin', 'multibox' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'maxytecmultiplus', 'plus' , '', d)}\
 "
 
 MACHINE_DRIVER ?= "\
+${@bb.utils.contains('MACHINEBUILD', 'ultrav8plus', 'v8plus' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'anadolmulti', 'multibox' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'maxytecmulti', 'multibox' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'axmulticombo', 'multibox' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'axmultitwin', 'multibox' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'anadolmultitwin', 'multibox' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'maxytecmultiplus', 'plus' , '', d)}\
 "
 
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS += "\
@@ -44,9 +64,7 @@ include conf/machine/include/autoload-filesystems.inc
 require conf/machine/include/soc-family.inc
 require conf/machine/box-hardware.inc
 
-DVBMEDIASINK_CONFIG = "--with-wma --with-wmv --with-pcm --with-dts --with-eac3 \
-    ${@bb.utils.contains('MACHINE', 'multibox', '--with-h265 --with-vb6 --with-vb8 --with-vb9 --with-spark' , '', d)} \
-"
+DVBMEDIASINK_CONFIG = "--with-wma --with-wmv --with-pcm --with-dts --with-eac3 --with-h265 --with-vb6 --with-vb8 --with-vb9 --with-spark"
 
 PREFERRED_PROVIDER_virtual/kernel = "linux-maxytec"
 PREFERRED_PROVIDER_virtual/kodi = "stb-kodi-${MACHINE}"

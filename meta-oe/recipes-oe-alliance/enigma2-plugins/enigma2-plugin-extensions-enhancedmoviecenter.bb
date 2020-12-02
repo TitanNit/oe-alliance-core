@@ -11,7 +11,7 @@ SRCREV = "${AUTOREV}"
 PV = "4.0.+git${SRCPV}"
 PKGV = "4.0.+git${GITPKGV}"
 
-SRC_URI="git://github.com/betonme/e2openplugin-EnhancedMovieCenter.git"
+SRC_URI="git://github.com/betonme/e2openplugin-EnhancedMovieCenter.git;branch=py2"
 
 S = "${WORKDIR}/git"
 
@@ -25,7 +25,7 @@ FILES_${PN}-src = "\
 	"
 FILES_${PN}-po = "${libdir}/enigma2/python/Plugins/Extensions/EnhancedMovieCenter/locale/*/*/*.po"
 
-inherit autotools-brokensep
+inherit autotools-brokensep pythonnative
 
 EXTRA_OECONF = "\
     BUILD_SYS=${BUILD_SYS} \

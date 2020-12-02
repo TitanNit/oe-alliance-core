@@ -16,7 +16,7 @@ MACHINE_BRAND = "AMIKO"
 
 MTD_KERNEL = "mmcblk0p12"
 
-MTD_ROOTFS = "mmcblk0p13"
+MTD_ROOTFS = "mmcblk0p16"
 
 KERNEL_FILE = "kernel.bin"
 ROOTFS_FILE = "rootfs.tar.bz2"
@@ -33,12 +33,13 @@ MACHINE_ESSENTIAL_EXTRA_RDEPENDS += "\
     amiko-reader-${MACHINE} \
     amiko-libreader-${MACHINE} \
     amiko-partitions-${MACHINE} \
+    amiko-tntfs-${HICHIPSET} \
     amiko-buildimage \
     e2fsprogs-resize2fs \
     gptfdisk \
 "
 
-MACHINE_FEATURES += "switchoff 7segment hdmicec skins1080 emmc mmc blindscan-dvbs kodi alsa hbbtv-browser-webkit qtstalker qtnetflix"
+MACHINE_FEATURES += "switchoff 7segment hdmicec skins1080 emmc mmc blindscan-dvbs kodi18 alsa hbbtv-browser-webkit qtstalker qtnetflix"
 
 IMAGE_CLASSES  += "amiko-emmc_image"
 IMAGE_FSTYPES += "amikoemmc"
@@ -78,7 +79,7 @@ DVBMEDIASINK_CONFIG = "--with-h265 --with-vb8 --with-vb9 --with-spark --with-wma
 
 IMAGE_CMD_amikoemmc_append = "\
     mkdir -p ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}; \
-    cp ${IMGDEPLOYDIR}/${IMAGE_NAME}.rootfs.ext4 ${DEPLOY_DIR_IMAGE}/${MACHINE}-partitions/rootfs.ext4; \
+    mv ${IMGDEPLOYDIR}/${IMAGE_NAME}.rootfs.ext4 ${DEPLOY_DIR_IMAGE}/${MACHINE}-partitions/rootfs.ext4; \
     cd ${IMAGE_ROOTFS}; \
     tar -cvf ${DEPLOY_DIR_IMAGE}/rootfs.tar -C ${IMAGE_ROOTFS} .; \
     mv ${DEPLOY_DIR_IMAGE}/rootfs.tar ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}/rootfs.tar; \
@@ -92,12 +93,11 @@ IMAGE_CMD_amikoemmc_append = "\
     cd ${DEPLOY_DIR_IMAGE}/${MACHINE}-partitions; \
     mkupdate -s 00000003-00000001-01010101 -f ${DEPLOY_DIR_IMAGE}/${MACHINE}-partitions/emmc_partitions.xml -d ${DEPLOY_DIR_IMAGE}/usb_update.bin; \ 
     cd ${DEPLOY_DIR_IMAGE}; \
+    cp ${IMGDEPLOYDIR}/${IMAGE_NAME}.rootfs.manifest ${IMAGE_NAME}_usb.zip.manifest; \
+    zip -j ${IMAGE_NAME}_recovery_emmc.zip ${DEPLOY_DIR_IMAGE}/usb_update.bin ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}/imageversion ${DEPLOY_DIR_IMAGE}/${MACHINE}-partitions/bootargs.bin ${DEPLOY_DIR_IMAGE}/${MACHINE}-partitions/fastboot.bin ${DEPLOY_DIR_IMAGE}/${MACHINE}-partitions/apploader.bin; \
     zip ${IMAGE_NAME}_mmc.zip ${IMAGEDIR}/*; \
-    zip -j ${IMAGE_NAME}_mmc.zip ${DEPLOY_DIR_IMAGE}/usb_update.bin ${DEPLOY_DIR_IMAGE}/${MACHINE}-partitions/bootargs.bin ${DEPLOY_DIR_IMAGE}/${MACHINE}-partitions/fastboot.bin ${DEPLOY_DIR_IMAGE}/${MACHINE}-partitions/apploader.bin; \
     rm -f ${DEPLOY_DIR_IMAGE}/*.ext4; \
-    rm -f ${DEPLOY_DIR_IMAGE}/*.manifest; \
     rm -f ${DEPLOY_DIR_IMAGE}/.ext4; \
-    rm -f ${DEPLOY_DIR_IMAGE}/.manifest; \
     rm -f -f ${DEPLOY_DIR_IMAGE}/*.json; \
     rm -Rf ${DEPLOY_DIR_IMAGE}/usb_update.bin; \
     rm -Rf ${IMAGEDIR}; \
@@ -109,3 +109,4 @@ MACHINEOVERRIDES =. "${@['', '${MACHINEBUILD}:']['${MACHINEBUILD}' != '']}"
 BBMASK = "meta-vuplus/recipes-graphics/"
 BBMASK += "meta-fulan/recipes-graphics/"
 BBMASK += "meta-vuplus/recipes-webkit/"
+BBMASK += "meta-oe/recipes-qt5.14/"

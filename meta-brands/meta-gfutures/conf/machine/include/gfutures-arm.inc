@@ -21,6 +21,11 @@ MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS += "\
 
 PREFERRED_VERSION_linux-gfutures = "4.10.12"
 
+IMAGE_CMD_hdemmc_prepend = " \
+    rm -f ${DEPLOY_DIR_IMAGE}/*.ext4; \
+    rm -f ${DEPLOY_DIR_IMAGE}/*.manifest; \
+    "
+
 IMAGE_CMD_hdemmc_append = "\
     mkdir -p ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}; \
     mv ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.emmc.img ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}/disk.img; \
@@ -31,7 +36,8 @@ IMAGE_CMD_hdemmc_append = "\
     cp ${DEPLOY_DIR_IMAGE}/zImage ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}/${KERNEL_FILE}; \
     echo ${IMAGE_VER_STRING} > ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}/imageversion; \
     cd ${DEPLOY_DIR_IMAGE}; \
-    zip ${IMAGE_NAME}_usb.zip ${IMAGEDIR}/*; \
+    zip ${IMAGE_NAME}_recovery_emmc.zip ${IMAGEDIR}/disk.img ${IMAGEDIR}/imageversion; \
+    zip ${IMAGE_NAME}_usb.zip ${IMAGEDIR}/imageversion ${IMAGEDIR}/kernel.bin ${IMAGEDIR}/rootfs.tar.bz2; \
     rm -f ${DEPLOY_DIR_IMAGE}/*.ext4; \
     rm -f ${DEPLOY_DIR_IMAGE}/*.manifest; \
     rm -f ${DEPLOY_DIR_IMAGE}/.ext4; \

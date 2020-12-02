@@ -1,6 +1,6 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/qtbase:"
 
-SRC_URI_append = " file://mkspecs-fix-build-with-gcc9.patch"
+SRC_URI_append = " ${@bb.utils.contains_any("MACHINE", "gb72604 gb7252", "file://mkspecs-fix-build-with-gcc9-qt5.8.patch", "file://mkspecs-fix-build-with-gcc9.patch", d)}"
 
 INSANE_SKIP_${PN} += "file-rdeps"
 INSANE_SKIP_${PN}-plugins += "file-rdeps"
@@ -18,5 +18,6 @@ EXTRA_QTBASE_vuuno4k = "vuplus"
 EXTRA_QTBASE_vuuno4kse = "vuplus"
 EXTRA_QTBASE_vuzero4k = "vuplus"
 EXTRA_QTBASE_vuduo4k = "vuplus"
+EXTRA_QTBASE_vuduo4kse = "vuplus"
 
 require qtbase-${EXTRA_QTBASE}_git.inc

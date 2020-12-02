@@ -1,8 +1,8 @@
-SRCDATE = "20190717"
+SRCDATE = "20201123"
 
 require airdigital-recovery.inc
 
-SRC_URI[md5sum] = "8541c179de751b58d29cba15ab9a5661"
-SRC_URI[sha256sum] = "242f627e2c2abc8c7fedf1482cbad4558ef51726674afec94d98321e42784dcb"
+SRC_URI[md5sum] = "68444188fd91d88012e753ed537c4120"
+SRC_URI[sha256sum] = "5d22fb0d008d6fa106dc51685c5f202beea7d01205681f5753494af19c8c8762"
 
-COMPATIBLE_MACHINE = "^h9combo$|^h10$"
+COMPATIBLE_MACHINE = "^h9se$|^h9combo$|^h9combose$|^h10$|^i55se$"

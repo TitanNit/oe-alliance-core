@@ -3,8 +3,6 @@ PACKAGECONFIG_append_pn-qtbase += " gles2 linuxfb"
 
 MACHINE_FEATURES += "qthbbtv qtstalker"
 
-DISTRO_FEATURES_EXTRA = "opengl"
-
 PREFERRED_PROVIDER_virtual/egl ?= "gfutures-mali-${HICHIPSET}"
 PREFERRED_PROVIDER_virtual/libgles1 ?= "gfutures-mali-${HICHIPSET}"
 PREFERRED_PROVIDER_virtual/libgles2 ?= "gfutures-mali-${HICHIPSET}"
@@ -18,8 +16,7 @@ TARGET_ARCH = "arm"
 DEFAULTTUNE = "cortexa15hf-neon-vfpv4"
 
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS += "\
-    ${@bb.utils.contains('MACHINE_FEATURES', 'hisil', 'gfutures-libs-${HICHIPSET} gfutures-partitions-${MACHINE} gfutures-bootargs-${MACHINE}' , '', d)} \
-    ${@bb.utils.contains('MACHINE_FEATURES', 'hisi-recovery', 'gfutures-recovery-${MACHINE}' , '', d)} \
+    ${@bb.utils.contains('MACHINE_FEATURES', 'hisil', 'gfutures-libs-${HICHIPSET} gfutures-partitions-${MACHINE} gfutures-bootargs-${MACHINE} gfutures-recovery-${MACHINE} gfutures-tntfs-${HICHIPSET}' , '', d)} \
     "
 
 MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS += "\
@@ -38,11 +35,12 @@ IMAGEDIRRECOVERY ?= "${MACHINE}-recovery"
 IMAGE_CMD_hdfastboot8gb_append = " \
     mkdir -p ${DEPLOY_DIR_IMAGE}/${IMAGEDIRRECOVERY}/${IMAGEDIR}; \
     cp ${IMGDEPLOYDIR}/bootoptions.img ${DEPLOY_DIR_IMAGE}/${IMAGEDIRRECOVERY}/${IMAGEDIR}/bootoptions.img; \
+    cp ${IMGDEPLOYDIR}/misc-boot.img ${DEPLOY_DIR_IMAGE}/${IMAGEDIRRECOVERY}/${IMAGEDIR}/misc-boot.img; \
     cp ${DEPLOY_DIR_IMAGE}/gfutures-partitions-${MACHINE}/fastboot.bin ${DEPLOY_DIR_IMAGE}/${IMAGEDIRRECOVERY}/fastboot.bin; \
     cp ${DEPLOY_DIR_IMAGE}/gfutures-partitions-${MACHINE}/bootargs-8gb.bin ${DEPLOY_DIR_IMAGE}/${IMAGEDIRRECOVERY}/bootargs.bin; \
     cp ${DEPLOY_DIR_IMAGE}/gfutures-partitions-${MACHINE}/${MACHINE}/fastboot.bin ${DEPLOY_DIR_IMAGE}/${IMAGEDIRRECOVERY}/${IMAGEDIR}/fastboot.bin; \
     cp ${DEPLOY_DIR_IMAGE}/gfutures-partitions-${MACHINE}/${MACHINE}/bootargs-8gb.bin ${DEPLOY_DIR_IMAGE}/${IMAGEDIRRECOVERY}/${IMAGEDIR}/bootargs.bin; \
-    cp ${DEPLOY_DIR_IMAGE}/gfutures-partitions-${MACHINE}/${MACHINE}/pq_param.bin ${DEPLOY_DIR_IMAGE}/${IMAGEDIRRECOVERY}/${IMAGEDIR}/pq_param.bin; \
+    cp ${DEPLOY_DIR_IMAGE}/gfutures-partitions-${MACHINE}/${MACHINE}/pq_param.bin ${DEPLOY_DIR_IMAGE}/${IMAGEDIRRECOVERY}/${IMAGEDIR}/pqparam.bin; \
     cp ${DEPLOY_DIR_IMAGE}/gfutures-partitions-${MACHINE}/${MACHINE}/baseparam.img ${DEPLOY_DIR_IMAGE}/${IMAGEDIRRECOVERY}/${IMAGEDIR}/baseparam.img; \
     if [ -e ${DEPLOY_DIR_IMAGE}/gfutures-partitions-${MACHINE}/${MACHINE}/recovery.bin ]; then \
         cp ${DEPLOY_DIR_IMAGE}/gfutures-partitions-${MACHINE}/${MACHINE}/recovery.bin ${DEPLOY_DIR_IMAGE}/${IMAGEDIRRECOVERY}/${IMAGEDIR}/recovery.bin; \

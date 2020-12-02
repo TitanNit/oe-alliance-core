@@ -26,6 +26,7 @@ ${@bb.utils.contains('MACHINEBUILD', 'iziboxx3', 'X3' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'axashistwin', 'HIS Twin' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'axashisc4k', 'HIS C 4K' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'protek4kx1', '4K X1' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'protek4kx2', '4K X2' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'anadolprohd5', 'Pro HD5' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'spycatminiv2', 'Mini V2' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'iziboxecohd', 'ECO TWIN HD' , '', d)}\
@@ -33,6 +34,9 @@ ${@bb.utils.contains('MACHINEBUILD', 'jdhdduo', 'HD DUO' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'turing', 'TURING' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'arivatwin', 'ARIVA ATV TT' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'arivacombo', 'ARIVA ATV COMBO' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'vipertwin', 'Viper Twin E2' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'vipers', 'Viper S' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'viper4kv20', 'Viper 4K V20' , '', d)}\
 "
 
 MACHINE_BRAND = "\
@@ -58,6 +62,7 @@ ${@bb.utils.contains('MACHINEBUILD', 'iziboxx3', 'IZIBOX' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'axashistwin', 'AXAS' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'axashisc4k', 'AXAS' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'protek4kx1', 'PROTEK' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'protek4kx2', 'PROTEK' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'anadolprohd5', 'ANADOL' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'spycatminiv2', 'SPYCAT' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'iziboxecohd', 'IZIBOX' , '', d)}\
@@ -65,6 +70,9 @@ ${@bb.utils.contains('MACHINEBUILD', 'jdhdduo', 'HD DUO' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'turing', 'Atto.TV' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'arivatwin', 'Ferguson' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'arivacombo', 'Ferguson' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'vipertwin', 'AMIKO' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'viperts', 'AMIKO' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'viper4kv20', 'AMIKO' , '', d)}\
 "
 
 MTD_KERNEL = "\
@@ -90,6 +98,7 @@ ${@bb.utils.contains('MACHINEBUILD', 'iziboxx3', 'mtd10' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'axashistwin', 'mtd8' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'axashisc4k', 'mmcblk0p9' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'protek4kx1', 'mmcblk0p9' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'protek4kx2', 'mmcblk0p9' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'anadolprohd5', 'mtd8' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'spycatminiv2', 'mtd8' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'iziboxecohd', 'mtd8' , '', d)}\
@@ -97,6 +106,9 @@ ${@bb.utils.contains('MACHINEBUILD', 'jdhdduo', 'mtd8' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'turing', 'mtd8' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'arivatwin', 'mmcblk0p10' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'arivacombo', 'mmcblk0p10' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'vipertwin', 'mtd8' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'vipers', 'mtd8' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'viper4kv20', 'mmcblk0p9' , '', d)}\
 "
 
 MTD_ROOTFS = "\
@@ -122,13 +134,17 @@ ${@bb.utils.contains('MACHINEBUILD', 'iziboxx3', 'mtd11' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'axashistwin', 'mtd9' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'axashisc4k', 'mmcblk0p10' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'protek4kx1', 'mmcblk0p10' , '', d)}\
-${@bb.utils.contains('MACHINEBUILD', 'anadolprohd5', 'mtd11' , '', d)}\
-${@bb.utils.contains('MACHINEBUILD', 'spycatminiv2', 'mtd11' , '', d)}\
-${@bb.utils.contains('MACHINEBUILD', 'iziboxecohd', 'mtd11' , '', d)}\
-${@bb.utils.contains('MACHINEBUILD', 'jdhdduo', 'mtd11' , '', d)}\
-${@bb.utils.contains('MACHINEBUILD', 'turing', 'mtd11' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'protek4kx2', 'mmcblk0p10' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'anadolprohd5', 'mtd9' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'spycatminiv2', 'mtd9' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'iziboxecohd', 'mtd9' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'jdhdduo', 'mtd9' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'turing', 'mtd9' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'arivatwin', 'mmcblk0p13' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'arivacombo', 'mmcblk0p13' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'vipertwin', 'mtd9' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'vipers', 'mtd9' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'viper4kv20', 'mmcblk0p10' , '', d)}\
 "
 
 SDCARDIMG = "\
@@ -154,6 +170,7 @@ ${@bb.utils.contains('MACHINEBUILD', 'iziboxx3', 'no' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'axashistwin', 'no' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'axashisc4k', 'no' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'protek4kx1', 'no' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'protek4kx2', 'no' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'anadolprohd5', 'no' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'spycatminiv2', 'no' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'iziboxecohd', 'no' , '', d)}\
@@ -161,6 +178,9 @@ ${@bb.utils.contains('MACHINEBUILD', 'jdhdduo', 'no' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'turing', 'no' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'arivatwin', 'no' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'arivacombo', 'no' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'vipertwin', 'no' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'vipers', 'no' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'viper4kv20', 'no' , '', d)}\
 "
 
 IMAGEDIR = "\
@@ -186,13 +206,17 @@ ${@bb.utils.contains('MACHINEBUILD', 'iziboxx3', 'izibox/x3' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'axashistwin', 'axas/axashistwin' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'axashisc4k', 'axas/axasc4k' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'protek4kx1', 'e2/update' , '', d)}\
-${@bb.utils.contains('MACHINEBUILD', 'anadolprohd5', 'anadol/prohd5' , '', d)}\
-${@bb.utils.contains('MACHINEBUILD', 'spycatminiv2', 'spycat/miniv2' , '', d)}\
-${@bb.utils.contains('MACHINEBUILD', 'iziboxecohd', 'e2/update' , '', d)}\
-${@bb.utils.contains('MACHINEBUILD', 'jdhdduo', 'jd/duohd' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'protek4kx2', 'e2/update' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'anadolprohd5', 'dinobot/${MACHINE}' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'spycatminiv2', 'dinobot/${MACHINE}' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'iziboxecohd', 'dinobot/${MACHINE}' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'jdhdduo', 'dinobot/${MACHINE}' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'turing', 'atto/turing' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'arivatwin', 'e2/update' , '', d)}\
 ${@bb.utils.contains('MACHINEBUILD', 'arivacombo', 'e2/update' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'vipertwin', 'dinobot/${MACHINE}' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'vipers', 'amiko/${MACHINE}' , '', d)}\
+${@bb.utils.contains('MACHINEBUILD', 'viper4kv20', 'amiko/${MACHINE}' , '', d)}\
 "
 
 KERNEL_MODULE_AUTOLOAD += "xhci-plat-hcd"
@@ -231,6 +255,9 @@ MACHINE_EXTRA_RRECOMMENDS += " \
     gstreamer1.0-plugin-dvbmediasink \
     gstreamer1.0-libav \
     ${@bb.utils.contains('MACHINEBUILD', 'iziboxx3', 'enigma2-plugin-extensions-gbipboxclient' , '', d)} \
+    ${@bb.utils.contains('MACHINE', 'u41', 'dinobot-cpu-scaling' , '', d)} \
+    ${@bb.utils.contains('MACHINE', 'u42', 'dinobot-cpu-scaling' , '', d)} \
+    ${@bb.utils.contains('MACHINE', 'u43', 'dinobot-cpu-scaling' , '', d)} \
     "
 
 DVBPROVIDER = "kernel"
@@ -254,3 +281,4 @@ MACHINEOVERRIDES =. "${@['', '${MACHINEBUILD}:']['${MACHINEBUILD}' != '']}"
 BBMASK = "meta-vuplus/recipes-graphics/"
 BBMASK += "meta-fulan/recipes-graphics/"
 BBMASK += "meta-vuplus/recipes-webkit/"
+BBMASK += "meta-oe/recipes-qt5.14/"

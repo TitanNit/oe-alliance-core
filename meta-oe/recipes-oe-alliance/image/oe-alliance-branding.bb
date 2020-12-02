@@ -19,9 +19,9 @@ BRANCH="master"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 SRC_URI="git://github.com/oe-alliance/branding-module.git;protocol=git;branch=${BRANCH}"
-SRC_URI_append_openatv=" \
-	file://openatv_mappings.patch \
-"
+#SRC_URI_append_openatv=" \
+#	file://openatv_mappings.patch \
+#"
 
 S = "${WORKDIR}/git"
 
@@ -71,7 +71,7 @@ EXTRA_OECONF = " \
     "
 
 do_configure_prepend() {
-    if [ "${MACHINE}" = "vusolo4k" -o "${MACHINE}" = "vusolo2" -o "${MACHINE}" = "vusolose" -o "${MACHINE}" = "vuduo2" -o "${MACHINE}" = "vuuno4k" -o "${MACHINE}" = "vuuno4kse" -o "${MACHINE}" = "vuultimo4k" -o "${MACHINE}" = "vuzero4k" -o "${MACHINE}" = "vuduo4k" ]; then
+    if [ "${MACHINE}" = "vusolo4k" -o "${MACHINE}" = "vusolo2" -o "${MACHINE}" = "vusolose" -o "${MACHINE}" = "vuduo2" -o "${MACHINE}" = "vuuno4k" -o "${MACHINE}" = "vuuno4kse" -o "${MACHINE}" = "vuultimo4k" -o "${MACHINE}" = "vuzero4k" -o "${MACHINE}" = "vuduo4k" -o "${MACHINE}" = "vuduo4kse" ]; then
         DRIVERSDATE=`grep "SRCDATE = " ${OEA-META-VUPLUS-BASE}/recipes-drivers/vuplus-dvb-proxy-${MACHINE}.bb | cut -b 12-19`
     elif [ "${BRAND_OEM}" = "vuplus" ]; then
         DRIVERSDATE=`grep "SRCDATE = " ${OEA-META-VUPLUS-BASE}/recipes-drivers/vuplus-dvb-modules-${MACHINE}.bb | cut -b 12-19`
@@ -169,7 +169,7 @@ do_configure_prepend() {
         elif [ "${MACHINE}" = "dm800sev2" ]; then
             DRIVERSDATE="20151201"
         elif [ "${MACHINE}" = "dm900" ]; then
-            DRIVERSDATE="20190830"
+            DRIVERSDATE="20200226"
         elif [ "${MACHINE}" = "dm920" ]; then
             DRIVERSDATE="20190830"
         else
@@ -224,12 +224,12 @@ do_install_append() {
         install -m 0644 ${S}/BoxBranding/boxes/et7100.png ${D}/usr/share/enigma2/et7100.png
         ln -sf /usr/share/enigma2/et7100.png ${D}${libdir}/enigma2/python/Plugins/Extensions/OpenWebif/public/images/boxes/et7100.png
         install -m 0644 ${S}/BoxBranding/boxes/et7500.png ${D}/usr/share/enigma2/et7500.png
-        ln -sf /usr/share/enigma2/et7500.png ${D}${libdir}/enigma2/python/Plugins/Extensions/OpenWebif/public/images/boxes/et7500.png 
+        ln -sf /usr/share/enigma2/et7500.png ${D}${libdir}/enigma2/python/Plugins/Extensions/OpenWebif/public/images/boxes/et7500.png
     elif [ ${MACHINEBUILD} = "twinboxlcd" ]; then
         install -m 0644 ${S}/BoxBranding/boxes/twinboxlcdci.png ${D}/usr/share/enigma2/twinboxlcdci.png
         ln -sf /usr/share/enigma2/twinboxlcdci.png ${D}${libdir}/enigma2/python/Plugins/Extensions/OpenWebif/public/images/boxes/twinboxlcdci.png
         install -m 0644 ${S}/BoxBranding/boxes/twinboxlcd.png ${D}/usr/share/enigma2/twinboxlcd.png
-        ln -sf /usr/share/enigma2/twinboxlcd.png ${D}${libdir}/enigma2/python/Plugins/Extensions/OpenWebif/public/images/boxes/twinboxlcd.png 
+        ln -sf /usr/share/enigma2/twinboxlcd.png ${D}${libdir}/enigma2/python/Plugins/Extensions/OpenWebif/public/images/boxes/twinboxlcd.png
     elif [ ${MACHINEBUILD} = "dm520" ]; then
         install -m 0644 ${S}/BoxBranding/boxes/dm520.png ${D}/usr/share/enigma2/dm520.png
         ln -sf /usr/share/enigma2/dm520.png ${D}${libdir}/enigma2/python/Plugins/Extensions/OpenWebif/public/images/boxes/dm520.png
@@ -247,6 +247,13 @@ do_install_append() {
         ln -sf /usr/share/enigma2/sf8008s.png ${D}${libdir}/enigma2/python/Plugins/Extensions/OpenWebif/public/images/boxes/sf8008s.png
         install -m 0644 ${S}/BoxBranding/boxes/sf8008t.png ${D}/usr/share/enigma2/sf8008t.png
         ln -sf /usr/share/enigma2/sf8008t.png ${D}${libdir}/enigma2/python/Plugins/Extensions/OpenWebif/public/images/boxes/sf8008t.png
+    elif [ ${MACHINEBUILD} = "ustym4kpro" ]; then
+        install -m 0644 ${S}/BoxBranding/boxes/ustym4kpro.png ${D}/usr/share/enigma2/ustym4kpro.png
+        ln -sf /usr/share/enigma2/ustym4kpro.png ${D}${libdir}/enigma2/python/Plugins/Extensions/OpenWebif/public/images/boxes/ustym4kpro.png
+        install -m 0644 ${S}/BoxBranding/boxes/ustym4kprosingle.png ${D}/usr/share/enigma2/ustym4kprosingle.png
+        ln -sf /usr/share/enigma2/ustym4kprosingle.png ${D}${libdir}/enigma2/python/Plugins/Extensions/OpenWebif/public/images/boxes/ustym4kprosingle.png
+        install -m 0644 ${S}/BoxBranding/boxes/ustym4kprotwin.png ${D}/usr/share/enigma2/ustym4kprotwin.png
+        ln -sf /usr/share/enigma2/ustym4kprotwin.png ${D}${libdir}/enigma2/python/Plugins/Extensions/OpenWebif/public/images/boxes/ustym4kprotwin.png
     else
         install -m 0644 ${S}/BoxBranding/boxes/${MACHINEBUILD}.png ${D}/usr/share/enigma2/${MACHINEBUILD}.png
         ln -sf /usr/share/enigma2/${MACHINEBUILD}.png ${D}${libdir}/enigma2/python/Plugins/Extensions/OpenWebif/public/images/boxes/${MACHINEBUILD}.png

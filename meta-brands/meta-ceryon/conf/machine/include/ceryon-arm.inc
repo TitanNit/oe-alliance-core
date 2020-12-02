@@ -13,6 +13,11 @@ DEFAULTTUNE = "cortexa15hf-neon-vfpv4"
 
 PREFERRED_VERSION_linux-ceryon= "4.10.12"
 
+IMAGE_CMD_ceryonemmc_prepend = " \
+    rm -f ${DEPLOY_DIR_IMAGE}/*.ext4; \
+    rm -f ${DEPLOY_DIR_IMAGE}/*.manifest; \
+    "
+
 IMAGE_CMD_ceryonemmc_append = "\
     mkdir -p ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}; \
     ${@bb.utils.contains("MACHINE_FEATURES", "lcd220", "cp ${DEPLOY_DIR_IMAGE}/lcdwarning220.bin ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}/lcdflashing.bmp;" , "", d)} \
@@ -24,7 +29,8 @@ IMAGE_CMD_ceryonemmc_append = "\
     cp ${DEPLOY_DIR_IMAGE}/zImage ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}/${KERNEL_FILE}; \
     echo ${IMAGE_VER_STRING} > ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}/imageversion; \
     cd ${DEPLOY_DIR_IMAGE}; \
-    zip ${IMAGE_NAME}_usb.zip ${IMAGEDIR}/*; \
+    zip ${IMAGE_NAME}_recovery_emmc.zip ${IMAGEDIR}/disk.img ${IMAGEDIR}/imageversion; \
+    zip ${IMAGE_NAME}_usb.zip ${IMAGEDIR}/imageversion ${IMAGEDIR}/kernel.bin ${IMAGEDIR}/rootfs.tar.bz2; \
     rm -f ${DEPLOY_DIR_IMAGE}/*.ext4; \
     rm -f ${DEPLOY_DIR_IMAGE}/*.manifest; \
     rm -f ${DEPLOY_DIR_IMAGE}/.ext4; \

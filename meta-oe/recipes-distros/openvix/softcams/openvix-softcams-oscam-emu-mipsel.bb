@@ -6,8 +6,8 @@ LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 
 PV = "1.20+svn${SRCPV}"
-SRCREV = "11570"
-SRC_URI = "svn://www.streamboard.tv/svn/oscam;protocol=http;module=trunk;scmdata=keep;rev=${SRCREV};externals=nowarn"
+SRCREV = "11572"
+SRC_URI = "svn://svn.streamboard.tv/oscam;protocol=https;module=trunk;scmdata=keep;rev=${SRCREV};externals=nowarn"
 PR = "r1"
 
 do_fetch[depends] += "openvix-softcams-oscam-mipsel:do_fetch"
@@ -18,11 +18,11 @@ PROVIDES += "openvix-softcams-oscam-emu-mipsel"
 RPROVIDES_enigma2-plugin-softcams-oscam-emu += "openvix-softcams-oscam-emu-mipsel"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/enigma2-plugin-softcams-oscam-emu:"
-PATCHREV = "46752bb2340f1f39b74ea8659997b6c4564c3a8c"
+PATCHREV = "f56e693c449222be715f30f7d154dffdcf108c99"
 PR = "r798"
 SRC_URI += "https://raw.githubusercontent.com/oscam-emu/oscam-emu/${PATCHREV}/oscam-emu.patch?${PATCHREV};downloadfilename=oscam-emu.${PATCHREV}.patch;name=emu;striplevel=0"
-SRC_URI[emu.md5sum] = "b6cc5eac8de0cc2859193c90371da0b9"
-SRC_URI[emu.sha256sum] = "dbedd9ede14695848baec467f70df6ed77544de300b1f8b73f8deed260c1beec"
+SRC_URI[emu.md5sum] = "557659e64a0e3dfd6e2aee01bde7bd7d"
+SRC_URI[emu.sha256sum] = "2df2505a5b56dd3b73d9be15577ea65cd524cc81598f966b8efc1b3ac1919489"
 
 DEPENDS = "libusb openssl"
 

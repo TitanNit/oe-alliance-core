@@ -1,8 +1,8 @@
-SRCDATE = "20190531"
+SRCDATE = "20200916"
 
 require airdigital-bootargs.inc
 
-SRC_URI[md5sum] = "9ce98fe3ff472d9004740962cef07151"
-SRC_URI[sha256sum] = "cce4ec6a8c62c0dcd58304718718e78d004a98090e5fed5edc54fc5faff994ec"
+SRC_URI[md5sum] = "378622e172cb6c70d50c988badf30a04"
+SRC_URI[sha256sum] = "cfe68f0a7248af35f42ea74f13b2fdbbec7b9682940f9725da914c44f5a05f5f"
 
-COMPATIBLE_MACHINE = "^h9$|^h9combo$|^h10$|^i55plus$"
+COMPATIBLE_MACHINE = "^h9$|^h9se$|^h9combo$|^h9combose$|^h10$|^i55plus$|^i55se$"

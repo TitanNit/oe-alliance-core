@@ -15,11 +15,12 @@ PACKAGES += " \
 PROVIDES += " \
     enigma2-plugin-extensions-autotimer \
     enigma2-plugin-extensions-btdevicesmanager \
+    enigma2-plugin-systemplugins-abmcustommiximporter \
+    enigma2-plugin-systemplugins-aboutboxbranding \
     enigma2-plugin-systemplugins-blindscan \
     enigma2-plugin-systemplugins-channelsimporter \
     enigma2-plugin-extensions-dlnabrowser \
     enigma2-plugin-extensions-dlnaserver \
-    enigma2-plugin-systemplugins-abmcustommiximporter \
     enigma2-plugin-systemplugins-firmwareupgrade \
     enigma2-plugin-systemplugins-fpgaupgrade \
     enigma2-plugin-systemplugins-vfdcontrol \
@@ -30,7 +31,6 @@ PROVIDES += " \
     enigma2-plugin-extensions-webbrowser \
     enigma2-plugin-extensions-openuitzendinggemist \
     enigma2-plugin-systemplugins-satipclient \
-    enigma2-plugin-systemplugins-terrestrialscan \
     enigma2-plugin-extensions-tunerserver \
     ${@bb.utils.contains('MACHINE_FEATURES', 'operahbbtv', 'enigma2-plugin-extensions-hbbtv ' , ' ', d)} \
     enigma2-plugin-systemplugins-transcodingsetup \
@@ -68,6 +68,7 @@ DEPENDS = "\
     "
 
 DESCRIPTION_enigma2-plugin-systemplugins-audioeffect = "Audio Effect setup"
+DESCRIPTION_enigma2-plugin-systemplugins-aboutboxbranding = "View Boxbranding data from the GUI"
 DESCRIPTION_enigma2-plugin-extensions-btdevicesmanager = "this is bt devices manger to pair e.x keyboard or mouse"
 RDEPENDS_enigma2-plugin-extensions-btdevicesmanager = "bluez5-testtools bluez5 bluez-hcidump bluez-conf bluez-hidd bluez-alsa alsa-utils-aplay python-pexpect"
 DESCRIPTION_enigma2-plugin-systemplugins-blindscan = "blindscan..."
@@ -82,7 +83,6 @@ DESCRIPTION_enigma2-plugin-systemplugins-vfdcontrol = "vfd controller"
 DESCRIPTION_enigma2-plugin-extensions-streamtv = "iptv player"
 RDEPENDS_enigma2-plugin-extensions-streamtv = "librtmp1"
 DESCRIPTION_enigma2-plugin-systemplugins-tempfancontrol = "Control your internal system fan."
-DESCRIPTION_enigma2-plugin-systemplugins-terrestrialscan = "Selects the strongest transponders where there are duplicates and allows filtering by network id."
 DESCRIPTION_enigma2-plugin-systemplugins-channelsimporter = "Imports a copy of the channel list from a remote receiver and loads it on the local receiver."
 DESCRIPTION_enigma2-plugin-systemplugins-abmcustommiximporter = "Imports ABM CustomMix files from Github."
 DESCRIPTION_enigma2-plugin-systemplugins-fancontrol = "Control your internal system fan."

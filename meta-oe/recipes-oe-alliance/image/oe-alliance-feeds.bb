@@ -9,7 +9,7 @@ ALLOW_EMPTY_${PN} = "1"
 PACKAGES = "${PN}"
 
 PV = "${IMAGE_VERSION}"
-PR = "r4"
+PR = "r6"
 
 DEPENDS = "enigma2-plugin-drivers-usbserial enigma2-plugin-systemplugins-hrtunerproxy enigma2-plugin-systemplugins-radiotimesemulator"
 
@@ -39,16 +39,21 @@ RDEPENDS_${PN} = " \
     enigma2-plugin-extensions-e2iplayer \
     enigma2-plugin-extensions-e2iplayer-deps \
     enigma2-plugin-extensions-e2m3u2bouquet \
+    enigma2-plugin-extensions-jedimakerxtream \
     enigma2-plugin-extensions-xmodem \
+    enigma2-plugin-extensions-xstreamity \
     enigma2-plugin-systemplugins-hrtunerproxy \
+    enigma2-plugin-systemplugins-joynescan \
+    enigma2-plugin-systemplugins-misplslcnscan \
     enigma2-plugin-systemplugins-radiotimesemulator \
+    enigma2-plugin-systemplugins-terrestrialscan \
     oe-alliance-branding-remote \
     exteplayer3 \
     enigma2-plugin-systemplugins-serviceapp \
     eplayer5 \
     ${@bb.utils.contains("MACHINE_FEATURES", "legacykernel", "" , "gdb v4l-utils evtest strace", d)} \
     ${@bb.utils.contains("MACHINE_FEATURES", "omb", "enigma2-plugin-extensions-openmultiboot openmultiboot", "", d)} \
-    ${@bb.utils.contains("MACHINE_FEATURES", "kodi", "kodi-addons-meta enigma2-plugin-extensions-kodi", "", d)} \
+    ${@bb.utils.contains_any("MACHINE_FEATURES", "kodi kodi18", "kodi-addons-meta enigma2-plugin-extensions-kodi", "", d)} \
     ${@bb.utils.contains("MACHINE_FEATURES", "webkithbbtv", "enigma2-plugin-extensions-webkithbbtv", "", d)} \
     ${@bb.utils.contains("MACHINE_FEATURES", "qthbbtv", "enigma2-plugin-extensions-hbbtv-qt", "", d)} \
     ${@bb.utils.contains("MACHINE_FEATURES", "qtstalker", "enigma2-plugin-extensions-stalker-qt", "", d)} \
@@ -71,7 +76,7 @@ RDEPENDS_${PN} = " \
     dvblast \
     dvbsnoop \
     dvdfs \
-    edid-decode \
+    ${@bb.utils.contains('MACHINE', 'cube', '' , 'edid-decode', d)} \
     exfat-utils \
     fuse-exfat \
     gptfdisk \
@@ -85,6 +90,7 @@ RDEPENDS_${PN} = " \
     lighttpd \
     livestreamersrv \
     streamlink \
+    satpi \
     llmnr-query \
     mc \
     mergerfs \
@@ -94,6 +100,7 @@ RDEPENDS_${PN} = " \
     mtd-utils \
     nano \
     net-snmp \
+    nlohmann-json \
     nss \
     ntfs-3g \
     ntp \
@@ -119,6 +126,7 @@ RDEPENDS_${PN} = " \
     python-circuits-bricks \
     python-cfscrape \
     python-cocy \
+    python-future \
     python-futures \
     python-fuzzywuzzy \
     python-ipaddress \
@@ -135,6 +143,7 @@ RDEPENDS_${PN} = " \
     python-soco \
     python-pyexecjs \
     ${@bb.utils.contains("DEFAULTTUNE", "sh4", "" , "rclone zerotier", d)} \
+    rapidxml \
     rsync \
     rtorrent \
     sabnzbd \
@@ -150,6 +159,7 @@ RDEPENDS_${PN} = " \
     ushare \
     vim \
     wakelan \
+    ${@bb.utils.contains_any("MACHINE", "cube spark spark7162 dm900 dm920 vuduo2 vusolose vusolo2 vuzero vuuno vuduo vuultimo vusolo inihde2 jj7362 odinm9 et9x00 et6x00 et5x00 dags7356 dags7335 inihdx inihde inihdp vg5000 vg2000 vg1000 ew7356 ew7358 ew7362 ixussone ixusszero blackbox7405 dm520 dm8000 dm7020hd dm7020hdv2 dm800sev2 dm500hdv2 dm7080 dm820 yh7362 yh62tc gb800solo gb7325 ch62lc", "" , "wireguard-module wireguard-tools", d)} \
     wireless-tools \
     zeroconf \
     "

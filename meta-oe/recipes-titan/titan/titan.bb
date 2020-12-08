@@ -240,6 +240,8 @@ CFLAGS_append_arm = " -DOEBUILD -DEXTEPLAYER3 -DEPLAYER3 -DCAMSUPP -Os -mhard-fl
 LDFLAGS_prepend = " -leplayer3 -lpthread -ldl -lm -lz -lpng -lfreetype -ldreamdvd -ljpeg -lssl -lcrypto -lcurl "
 LDFLAGS_prepend_sh4 = " -lmmeimage "
 
+SOURCE_FILES = "titan.c"
+
 do_compile() {
 	cd ${WORKDIR}/titan/titan/tools
 
@@ -408,13 +410,15 @@ do_compile() {
 
 	cp Makefile.am.4.3 Makefile.am
 
-	libtoolize --force
-	aclocal -I ${STAGING_DIR_TARGET}/usr/share/aclocal
-	autoconf
-	automake --foreign --add-missing
-	./configure --host=${HOST_SYS} --build=${BUILD_SYS}
+#	libtoolize --force
+#	aclocal -I ${STAGING_DIR_TARGET}/usr/share/aclocal
+#	autoconf
+#	automake --foreign --add-missing
+#	./configure --host=${HOST_SYS} --build=${BUILD_SYS}
 
-	make -f Makefile titan
+#	make -f Makefile titan
+
+    ${CC} ${SOURCE_FILES} ${CFLAGS} -o titan ${LDFLAGS}
 }
 
 FILES_${PN} = " \

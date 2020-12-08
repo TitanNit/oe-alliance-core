@@ -32,7 +32,7 @@ S = "${WORKDIR}/libeplayer3"
 CFLAGS_append = " \
 	-I${S}/include \
 	-I${S}/external \
-        -I${S}/external/flv2mpeg4 \
+    -I${S}/external/flv2mpeg4 \
 	"
 
 do_compile() {

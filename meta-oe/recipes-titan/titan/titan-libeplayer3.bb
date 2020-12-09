@@ -18,8 +18,8 @@ PR = "r3"
 
 SRC_URI = "svn://sbnc.dyndns.tv/svn/titan;module=libeplayer3;protocol=http"
 
-DEPENDS = "ffmpeg libbluray libass"
-RDEPENDS_${PN} = "ffmpeg libbluray libass"
+DEPENDS = "ffmpeg libbluray"
+RDEPENDS_${PN} = "ffmpeg libbluray"
 
 inherit gitpkgv upx-compress
 
@@ -40,16 +40,10 @@ CFLAGS_append_arm = " -DARM -DMIPSEL"
 CFLAGS_append_mipsel = " -DMIPSEL"
 CFLAGS_append_mipsel = " -DSH4"
 
-#CFLAGS_append_sh4 = " -DOEBUILD -DEXTEPLAYER3 -DEPLAYER3 -DSH4 -DSH4NEW -DCAMSUPP -Os -export-dynamic -Wall -Wno-unused-but-set-variable -Wno-implicit-function-declaration"
-#CFLAGS_append_mipsel = " -DOEBUILD -DEXTEPLAYER3 -DEPLAYER3 -DCAMSUPP -Os -mhard-float -export-dynamic -Wall -Wno-unused-but-set-variable -Wno-implicit-function-declaration -Wno-unused-variable -Wno-format-overflow -Wno-format-truncation -Wno-nonnull -Wno-restrict"
-#CFLAGS_append_arm = " -DOEBUILD -DEXTEPLAYER3 -DEPLAYER3 -DCAMSUPP -Os -mhard-float -export-dynamic -Wall -Wno-unused-but-set-variable -Wno-implicit-function-declaration -Wno-unused-variable -Wno-format-overflow -Wno-format-truncation -Wno-nonnull -Wno-restrict"
-
 LDFLAGS_prepend = " -lswscale -ldl -lpthread -lavformat -lavcodec -lavutil -lswresample "
 
 SOURCE_FILES_BIN = "main/exteplayer.c"
 
-#SOURCE_FILES = "main/exteplayer.c"
-#SOURCE_FILES =+ "container/container.c"
 SOURCE_FILES_LIB = "container/container.c"
 SOURCE_FILES_LIB =+ "container/container_ffmpeg.c"
 SOURCE_FILES_LIB =+ "manager/manager.c"
@@ -116,20 +110,17 @@ do_compile() {
 	if [ -e ${STAGING_DIR_TARGET}/usr/lib/libeplayer3.so.0.0.0 ]; then rm ${STAGING_DIR_TARGET}/usr/lib/libeplayer3.so.0; fi
 	if [ -e ${STAGING_DIR_TARGET}/usr/lib/libeplayer3.so.0.0.0 ]; then rm ${STAGING_DIR_TARGET}/usr/lib/libeplayer3.so; fi
 
-#fastok
-#	${CC} ${SOURCE_FILES} ${CFLAGS} -fPIC -shared -Wl,-soname,libeplayer3.so.0 -o libeplayer3.so.0.0.0 ${LDFLAGS}
-#	${STRIP} libeplayer3.so.0.0.0
-#    ${CC} ${SOURCE_FILES1} ${SOURCE_FILES} ${CFLAGS} -o eplayer3 ${LDFLAGS}
-#	${STRIP} eplayer3
-
 	${CC} ${SOURCE_FILES_LIB} ${CFLAGS} -fPIC -shared -Wl,-soname,libeplayer3.so.0 -o libeplayer3.so.0.0.0 ${LDFLAGS}
 	${STRIP} libeplayer3.so.0.0.0
 	if [ ! -e ${STAGING_DIR_TARGET}/usr/lib/libeplayer3.so ]; then cp -a libeplayer3.so.0.0.0 ${STAGING_DIR_TARGET}/usr/lib/libeplayer3.so; fi
 	if [ ! -e ${STAGING_DIR_TARGET}/usr/lib/libeplayer3.so.0 ]; then cp -a libeplayer3.so.0.0.0 ${STAGING_DIR_TARGET}/usr/lib/libeplayer3.so.0; fi
 	if [ ! -e ${STAGING_DIR_TARGET}/usr/lib/libeplayer3.so.0.0.0 ]; then cp -a libeplayer3.so.0.0.0 ${STAGING_DIR_TARGET}/usr/lib/libeplayer3.so.0.0.0; fi
 
+#	smal binary with linked lib
     ${CC} ${SOURCE_FILES_BIN} ${CFLAGS} -o eplayer3 -leplayer3 -lpthread
-	${STRIP} eplayer3
+
+#	full binary
+#	${CC} ${SOURCE_FILES_BIN} ${SOURCE_FILES_LIB} ${CFLAGS} -o eplayer3 ${LDFLAGS}
 }
 
 FILES_${PN} = "/usr/bin"
@@ -143,3 +134,6 @@ do_install_append() {
     ln -s libeplayer3.so.0.0.0 ${D}${libdir}/libeplayer3.so
     ln -s libeplayer3.so.0.0.0 ${D}${libdir}/libeplayer3.so.0
 }
+
+INSANE_SKIP_${PN} += "ldflags"
+

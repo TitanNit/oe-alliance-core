@@ -219,6 +219,8 @@ CFLAGS_append_sh4 = " \
 	-I${STAGING_KERNEL_DIR}/extra/bpamem \
 	"
 
+CFLAGS_append = " -DDVDPLAYER"
+
 CFLAGS_append_arm = " -DARM -DMIPSEL"
 CFLAGS_append_arm_dm900 = " -DDREAMBOX -DCONFIG_ION"
 CFLAGS_append_arm_dm920 = " -DDREAMBOX -DCONFIG_ION"

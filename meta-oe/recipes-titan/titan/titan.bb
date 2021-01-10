@@ -2,7 +2,7 @@ SUMMARY = "TitanNit is a fast Linux Framebuffer Gui"
 MAINTAINER = "TitanNit Team"
 SECTION = "multimedia"
 LICENSE = "GPLv2"
-PACKAGE_ARCH = "${MACHINE_ARCH}"
+PACKAGE_ARCH = "${MACHINEBUILD}"
 
 require conf/license/license-gplv2.inc
 

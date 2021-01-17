@@ -22,8 +22,8 @@ DEPENDS = " \
 	python-service-identity \
 	rtmpdump \
 	titan-netsurf \
+	titan-gmediarender \
 	"
-#	titan-gmediarender
 
 RDEPENDS_${PN} = "\
 	aio-grab \
@@ -43,6 +43,7 @@ RDEPENDS_${PN} = "\
 	early-configure \
 	ethtool \
 	exteplayer3 \
+	evtest \
 	fuse-exfat \
 	glibc-gconv-iso8859-15 \
 	glib-networking \
@@ -57,7 +58,6 @@ RDEPENDS_${PN} = "\
 	libusb1 \
 	mc \
 	minilocale \
-	minidlna \
 	module-init-tools-depmod \
 	modutils-loadscript \
 	mtd-utils \
@@ -106,7 +106,6 @@ RDEPENDS_${PN} = "\
 	${@bb.utils.contains("MACHINE_FEATURES", "singlecore", "", \
 	" \
 	", d)} \
-	${@bb.utils.contains("MACHINE_FEATURES", "dreamboxv1", "", "oe-alliance-wifi", d)} \
 	${@bb.utils.contains("TARGET_ARCH", "sh4", "alsa-utils-amixer-conf" , "", d)} \
 	oe-alliance-feeds-configs \
 	openatv-version-info \
@@ -116,10 +115,11 @@ RDEPENDS_${PN} = "\
 	titan-rarfs \
 	titan-fbread \
 	titan-tuxtxt \
+	${@bb.utils.contains("MACHINE_FEATURES", "dreamboxv1", "", "oe-alliance-wifi", d)} \
  	"
 
+#	${@bb.utils.contains("MACHINE", "sf8008", "kernel-module-mt7601u firmware-mt7601u", "", d)}
 
-#	${@bb.utils.contains("MACHINE_FEATURES", "dreamboxv1", "", "oe-alliance-wifi", d)}
 #
 #	titan-gmediarender
 #	titannit-version-info

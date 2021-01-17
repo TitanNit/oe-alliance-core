@@ -2,7 +2,7 @@ SUMMARY = "TitanNit is a fast Linux Framebuffer Gui"
 MAINTAINER = "TitanNit Team"
 SECTION = "multimedia"
 LICENSE = "GPLv2"
-PACKAGE_ARCH = "${MACHINE_ARCH}"
+PACKAGE_ARCH = "${MACHINEBUILD}"
 
 require conf/license/license-gplv2.inc
 
@@ -219,9 +219,12 @@ CFLAGS_append_sh4 = " \
 	-I${STAGING_KERNEL_DIR}/extra/bpamem \
 	"
 
+CFLAGS_append = " -DDVDPLAYER"
+
 CFLAGS_append_arm = " -DARM -DMIPSEL"
 CFLAGS_append_arm_dm900 = " -DDREAMBOX -DCONFIG_ION"
 CFLAGS_append_arm_dm920 = " -DDREAMBOX -DCONFIG_ION"
+CFLAGS_append_arm_sf8008 = " -DCONFIG_HISILICON_FB"
 #CFLAGS_append_arm_mutant51 = " -DDREAMBOX -DCONFIG_ION"
 #CFLAGS_append_arm_mutant60 = " -DDREAMBOX -DCONFIG_ION"
 
@@ -238,6 +241,8 @@ CFLAGS_append_arm = " -DOEBUILD -DEXTEPLAYER3 -DEPLAYER3 -DCAMSUPP -Os -mhard-fl
 
 LDFLAGS_prepend = " -leplayer3 -lpthread -ldl -lm -lz -lpng -lfreetype -ldreamdvd -ljpeg -lssl -lcrypto -lcurl "
 LDFLAGS_prepend_sh4 = " -lmmeimage "
+
+SOURCE_FILES = "titan.c"
 
 do_compile() {
 	cd ${WORKDIR}/titan/titan/tools
@@ -407,13 +412,15 @@ do_compile() {
 
 	cp Makefile.am.4.3 Makefile.am
 
-	libtoolize --force
-	aclocal -I ${STAGING_DIR_TARGET}/usr/share/aclocal
-	autoconf
-	automake --foreign --add-missing
-	./configure --host=${HOST_SYS} --build=${BUILD_SYS}
+#	libtoolize --force
+#	aclocal -I ${STAGING_DIR_TARGET}/usr/share/aclocal
+#	autoconf
+#	automake --foreign --add-missing
+#	./configure --host=${HOST_SYS} --build=${BUILD_SYS}
 
-	make -f Makefile titan
+#	make -f Makefile titan
+
+    ${CC} ${SOURCE_FILES} ${CFLAGS} -o titan ${LDFLAGS}
 }
 
 FILES_${PN} = " \

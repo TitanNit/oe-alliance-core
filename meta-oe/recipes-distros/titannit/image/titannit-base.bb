@@ -23,7 +23,7 @@ DEPENDS = " \
 	rtmpdump \
 	titan-netsurf \
 	titan-gmediarender \
-	${@bb.utils.contains('TUNE_FEATURES', 'aarch64', 'lib32-webkit-hbbtv-plugin' , 'webkit-hbbtv-plugin', d)} \
+	${@bb.utils.contains('MACHINE', 'dm900', 'webkit-hbbtv-plugin' , '', d)} \
 	"
 
 RDEPENDS_${PN} = "\

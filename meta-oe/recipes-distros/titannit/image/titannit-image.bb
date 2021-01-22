@@ -46,6 +46,7 @@ IMAGE_INSTALL = "\
 	titan-plugin-tithek \
 	titan-plugin-tmdb \
 	titan-plugin-weather \
+	webkit-hbbtv-plugin \
     "
 
 IMAGE_INSTALL_append_mipsel_aus = "\

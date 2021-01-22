@@ -23,6 +23,7 @@ DEPENDS = " \
 	rtmpdump \
 	titan-netsurf \
 	titan-gmediarender \
+	webkit-hbbtv-plugin \
 	"
 
 RDEPENDS_${PN} = "\

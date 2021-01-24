@@ -117,8 +117,8 @@ RDEPENDS_${PN} = "\
 	titan-tuxtxt \
 	${@bb.utils.contains("MACHINE_FEATURES", "dreamboxv1", "", "oe-alliance-wifi", d)} \
 	\
-	strongswan
-	iptables
+	strongswan \
+	iptables \
 	${@bb.utils.contains("TARGET_ARCH", "sh4", "kernel-module-aes-generic", "", d)} \
 	${@bb.utils.contains("TARGET_ARCH", "sh4", "kernel-module-sha1-generic", "", d)} \
  	"

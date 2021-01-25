@@ -23,6 +23,7 @@ DEPENDS = " \
 	rtmpdump \
 	titan-netsurf \
 	titan-gmediarender \
+	openhbbtvbrowser \
 	"
 
 RDEPENDS_${PN} = "\
@@ -75,6 +76,7 @@ RDEPENDS_${PN} = "\
 	packagegroup-base-smbfs-server \
    	packagegroup-base-smbfs-utils \
    	packagegroup-base-nfs \
+	parted \
 	${@bb.utils.contains('MACHINE_FEATURES', 'emmc', 'partitions-by-name' , '', d)} \ 
 	pngquant \
 	procps \

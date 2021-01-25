@@ -23,7 +23,6 @@ DEPENDS = " \
 	rtmpdump \
 	titan-netsurf \
 	titan-gmediarender \
-	openhbbtvbrowser \
 	"
 
 RDEPENDS_${PN} = "\

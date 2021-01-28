@@ -76,6 +76,7 @@ RDEPENDS_${PN} = "\
 	packagegroup-base-smbfs-server \
    	packagegroup-base-smbfs-utils \
    	packagegroup-base-nfs \
+	parted \
 	${@bb.utils.contains('MACHINE_FEATURES', 'emmc', 'partitions-by-name' , '', d)} \ 
 	pngquant \
 	procps \
@@ -117,6 +118,11 @@ RDEPENDS_${PN} = "\
 	titan-fbread \
 	titan-tuxtxt \
 	${@bb.utils.contains("MACHINE_FEATURES", "dreamboxv1", "", "oe-alliance-wifi", d)} \
+	\
+	strongswan \
+	iptables \
+	${@bb.utils.contains("TARGET_ARCH", "sh4", "kernel-module-aes-generic", "", d)} \
+	${@bb.utils.contains("TARGET_ARCH", "sh4", "kernel-module-sha1-generic", "", d)} \
  	"
 
 #	${@bb.utils.contains("MACHINE", "sf8008", "kernel-module-mt7601u firmware-mt7601u", "", d)}

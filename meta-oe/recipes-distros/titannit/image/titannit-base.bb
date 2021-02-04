@@ -37,7 +37,6 @@ RDEPENDS_${PN} = "\
 	curlftpfs \
 	djmount \
 	dropbear \
-	dvbsnoop \
 	e2fsprogs-e2fsck \
 	e2fsprogs-mke2fs \
 	e2fsprogs-tune2fs \
@@ -68,7 +67,6 @@ RDEPENDS_${PN} = "\
 	ntpdate \
 	ofgwrite \
 	openssl \
-	openvpn \
 	opkg \
 	packagegroup-base \
 	packagegroup-core-boot \
@@ -118,11 +116,6 @@ RDEPENDS_${PN} = "\
 	titan-fbread \
 	titan-tuxtxt \
 	${@bb.utils.contains("MACHINE_FEATURES", "dreamboxv1", "", "oe-alliance-wifi", d)} \
-	\
-	strongswan \
-	iptables \
-	${@bb.utils.contains("TARGET_ARCH", "sh4", "kernel-module-aes-generic", "", d)} \
-	${@bb.utils.contains("TARGET_ARCH", "sh4", "kernel-module-sha1-generic", "", d)} \
  	"
 
 #	${@bb.utils.contains("MACHINE", "sf8008", "kernel-module-mt7601u firmware-mt7601u", "", d)}

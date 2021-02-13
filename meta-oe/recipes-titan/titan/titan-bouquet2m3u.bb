@@ -21,9 +21,9 @@ S = "${WORKDIR}/"
 do_compile() {
 	cd ${WORKDIR}/bouquet2m3u
 	if [ ${TARGET_ARCH} = "sh4" ];then
-		${CC} -Os -c GO_bouquet2m3u.c -o bouquet2m3u -I${STAGING_DIR_TARGET}/usr/include -I${STAGING_DIR_TARGET}/usr -export-dynamic -Wall -Wno-unused-but-set-variable -Wno-implicit-function-declaration -Wno-unused-variable -Wno-format-overflow -Wno-format-truncation -Wno-nonnull -Wno-restrict ${CFLAGS}
+		${CC} -Os -c GO_bouquet2m3u.c -o bouquet2m3u
 	else
-		${CC} -Os -c GO_bouquet2m3u.c -o bouquet2m3u -I${STAGING_DIR_TARGET}/usr/include -I${STAGING_DIR_TARGET}/usr -mhard-float -export-dynamic -Wall -Wno-unused-but-set-variable -Wno-implicit-function-declaration -Wno-unused-variable -Wno-format-overflow -Wno-format-truncation -Wno-nonnull -Wno-restrict ${CFLAGS}
+		${CC} -Os -c GO_bouquet2m3u.c -o bouquet2m3u -mhard-float	
 	fi
 }
 

@@ -115,6 +115,7 @@ RDEPENDS_${PN} = "\
 	titan-rarfs \
 	titan-fbread \
 	titan-tuxtxt \
+	titan-bouquet2m3u \
 	${@bb.utils.contains("MACHINE_FEATURES", "dreamboxv1", "", "oe-alliance-wifi", d)} \
  	"
 

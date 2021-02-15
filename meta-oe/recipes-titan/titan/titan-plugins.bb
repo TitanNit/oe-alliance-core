@@ -131,9 +131,10 @@ do_install_append() {
 		echo ROUND $ROUND
 		install -d ${D}/usr/local/share/titan/plugins/$ROUND
 		install -m 0644 plugins/$ROUND/.libs/*.so ${D}/usr/local/share/titan/plugins/$ROUND
-		install -m 0655 plugins/$ROUND/*.sh ${D}/usr/local/share/titan/plugins/$ROUND
-		install -m 0655 plugins/$ROUND/*.py ${D}/usr/local/share/titan/plugins/$ROUND
 
+		if test -e plugins/$ROUND/$ROUND.sh;then
+			install -m 0655 plugins/$ROUND/*.sh ${D}/usr/local/share/titan/plugins/$ROUND
+		fi
 		if test -e plugins/$ROUND/files;then
 			cp -a plugins/$ROUND/files ${D}/usr/local/share/titan/plugins/$ROUND/
 		fi

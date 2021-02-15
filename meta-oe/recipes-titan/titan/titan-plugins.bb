@@ -131,7 +131,15 @@ do_install_append() {
 		echo ROUND $ROUND
 		install -d ${D}/usr/local/share/titan/plugins/$ROUND
 		install -m 0644 plugins/$ROUND/.libs/*.so ${D}/usr/local/share/titan/plugins/$ROUND
+		install -m 0655 plugins/$ROUND/*.sh ${D}/usr/local/share/titan/plugins/$ROUND
+		install -m 0655 plugins/$ROUND/*.py ${D}/usr/local/share/titan/plugins/$ROUND
 
+		if test -e plugins/$ROUND/files;then
+			cp -a plugins/$ROUND/files ${D}/usr/local/share/titan/plugins/$ROUND/
+		fi
+		if test -e skins/$ROUND/picons;then
+			cp -a skins/$ROUND/picons ${D}/usr/local/share/titan/plugins/$ROUND/
+		fi
 		if test -e skins/$ROUND/skin;then
 			cp -a skins/$ROUND/skin ${D}/usr/local/share/titan/plugins/$ROUND/
 		fi
@@ -140,6 +148,9 @@ do_install_append() {
 		fi
 		if test -e skins/$ROUND/plugin.png;then
 			install -m 0644 skins/$ROUND/plugin.png ${D}/usr/local/share/titan/plugins/$ROUND/
+		fi
+		if test -e skins/$ROUND/default.jpg;then
+			install -m 0644 skins/$ROUND/default.jpg ${D}/usr/local/share/titan/plugins/$ROUND/
 		fi
 	done
 }

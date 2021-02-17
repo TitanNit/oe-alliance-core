@@ -66,6 +66,7 @@ RDEPENDS_${PN} = "\
 	ntfs-3g \
 	ntpdate \
 	ofgwrite \
+    openssh-sftp-server \
 	openssl \
 	opkg \
 	packagegroup-base \
